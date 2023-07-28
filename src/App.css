@@ -9,18 +9,31 @@
   /* font-weight: 400; */
 }
 
-.names{
+/* .names{
   position: relative;
   margin-top: 0px;
   padding-top: 0%;
   padding-bottom: 50px;
   padding-left: 58%;
   font-size: 25px;
-}
+} */
 
 .a{
   width: 150px;
-  padding-left: 46%;
+}
+
+.imagelogo{
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-self: center; */
+  /* width: 100px; */
+}
+.imagelogo>span{
+  font-size: 25px;
+  padding-top: 12px;
 }
 
 .content{
@@ -45,9 +58,9 @@
 
 
 .main{
-  flex: 80;
+  flex: 8.5;
   padding-left: 30px;
-  background-color: rgb(42, 40, 40);
+  background-color: rgb(97, 97, 97);
   color: aliceblue;
 
 }
@@ -57,24 +70,29 @@
 }
 
 .sidemenu{
+  color: aliceblue;
   height: screen;
-  background-color: orangered;
+  background-color: rgb(43, 43, 43);
   height: 100%;
-  flex: 20;
+  flex: 300px;
+  flex: 1.5;
 }
 
 .about2{
   display: flex;
   flex-direction: column;
+  padding-top: 33px;
 }
 
 .about{
+  padding: 6px;
+  color: aliceblue;
   font-family: raleway;
   border: none;
-  background-color: orangered;
+  background-color: rgb(43, 43, 43);
   text-align: center;
   font-size: 25px;
-  border-top: 2px solid white;
+  border-top: 1px solid white;
   transition: background-color 0.3s ease, font-size 0.3s ease; 
 }
 
@@ -86,7 +104,7 @@
 .about:last-child{
   text-align: center;
   font-size: 25px;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   transition: background-color 0.3s ease, font-size 0.3s ease; 
 }
 
