@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Raleway:wght@200&display=swap');
+
+
+.container{
+  display: flex;
+  height: 100vh;
+  font-family: raleway;
+  overflow: hidden; 
+  /* font-weight: 400; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.names{
+  position: relative;
+  margin-top: 0px;
+  padding-top: 0%;
+  padding-bottom: 50px;
+  padding-left: 58%;
+  font-size: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.a{
+  width: 150px;
+  padding-left: 46%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content{
+  font-size: 80px;
+}
+
+.cm {
+  border: solid 1px rgb(38, 88, 255);
+  color: aliceblue;
+  background-color: rgb(102, 100, 100);
+  border-radius: 5px;
+  font-size: 28px;
+  padding: 12px 25px;
+  transition: background-color 0.5s ease, border 0.5s ease, font-size 0.2s ease-out; /* Added units to the transition */
+}
+
+.cm:hover {
+  border: rgb(53, 47, 226) solid 1px;
+  background-color: rgb(103, 33, 188);
+  font-size: 32px;
+}
+
+
+.main{
+  flex: 80;
+  padding-left: 30px;
+  background-color: rgb(42, 40, 40);
+  color: aliceblue;
+
+}
+
+.content {
+  margin: 28vh 0;
+}
+
+.sidemenu{
+  height: screen;
+  background-color: orangered;
+  height: 100%;
+  flex: 20;
+}
+
+.about2{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.about{
+  font-family: raleway;
+  border: none;
+  background-color: orangered;
+  text-align: center;
+  font-size: 25px;
+  border-top: 2px solid white;
+  transition: background-color 0.3s ease, font-size 0.3s ease; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about:hover{
+  background-color: orange;
+  font-size: 30px;
+}
+
+.about:last-child{
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 2px solid white;
+  transition: background-color 0.3s ease, font-size 0.3s ease; 
+}
+
+.about:last-child:hover{
+  background-color: orange;
+  font-size: 30px;
+}
+
+.rst{
+  position: relative;
+}
+
+.second-d {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 128px; /* Adjust the padding as needed */
+  font-size: 80px; /* Adjust the font size as needed */
+  color: #75d83c; /* Optionally change the color */
+  opacity: 0.6; /* Optionally adjust the opacity for a faded effect */
 }
