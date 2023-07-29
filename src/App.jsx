@@ -1,5 +1,8 @@
 import "./App.css";
 import scc from "./d.png";
+import git from './github.svg'
+import linked from './linkedin.svg'
+import leetcode from './leetcode.svg'
 
 function App() {
   return (
@@ -15,6 +18,11 @@ function App() {
             <button className="about">My Skills</button>
             <button className="about">Work</button>
             <button className="about">Contact</button>
+            <div className="links">
+              <img src={git} alt="Hey" />
+              <img src={linked} alt="Hey" />
+              <img src={leetcode} alt="Hey" />
+            </div>
           </div>
         </div>
         <div className="main">
