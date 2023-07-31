@@ -29,8 +29,8 @@ function App() {
           <div className="content">
             <div className="qst">Hi,</div>
             <div className="rst">
-              I'm <span className="fd">D</span>arpan,{" "}
-              <div className="second-d">D</div>
+              I'm <span className="fd">D</span>arpan,
+              <span className="second-d">D</span>
             </div>
             <div className="sst">Web Developer</div>
             <button className="cm">Contact Me</button>
