@@ -1,10 +1,20 @@
 import "./App.css";
 import scc from "./d.png";
-import git from './github.svg'
-import linked from './linkedin.svg'
-import leetcode from './leetcode.svg'
+import git from "./github.svg";
+import linked from "./linkedin.svg";
+import leetcode from "./leetcode.svg";
 
 function App() {
+  function asd() {
+    window.location.href = "https://leetcode.com/Darpan301/";
+  }
+  function asd1() {
+    window.location.href = "https://github.com/Darpan3011";
+  }
+  function asd2() {
+    window.location.href = "https://linkedin.com/in/darpan-kanani";
+  }
+
   return (
     <>
       <div className="container">
@@ -19,9 +29,9 @@ function App() {
             <button className="about">Work</button>
             <button className="about">Contact</button>
             <div className="links">
-              <img src={git} alt="Hey" />
-              <img src={linked} alt="Hey" />
-              <img src={leetcode} alt="Hey" />
+              <img src={git} alt="Hey" onClick={asd1} />
+              <img src={linked} alt="Hey" onClick={asd2} />
+              <img src={leetcode} alt="Hey" onClick={asd} />
             </div>
           </div>
         </div>
