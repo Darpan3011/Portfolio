@@ -5,7 +5,7 @@
   display: flex;
   height: 100vh;
   font-family: raleway;
-  overflow: hidden; 
+  /* overflow: hidden;  */
   /* font-weight: 400; */
 }
 
@@ -81,7 +81,7 @@
 }
 
 .content {
-  margin: 28vh 0;
+  margin-top: 26vh
 }
 
 .sidemenu{
