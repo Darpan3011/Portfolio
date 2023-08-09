@@ -1,60 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Borel&family=Raleway:wght@200&display=swap');
 
-
-.container{
+.container {
   display: flex;
   height: 100vh;
   font-family: raleway;
-  /* overflow: hidden;  */
-  /* font-weight: 400; */
 }
 
-/* .names{
-  position: relative;
-  margin-top: 0px;
-  padding-top: 0%;
-  padding-bottom: 50px;
-  padding-left: 58%;
-  font-size: 25px;
-} */
-
-.links{
+.links {
   display: flex;
   padding-top: 14px;
   justify-content: space-evenly;
-  /* pointer-events: none; */
 }
-.links>img{
+
+.links > img {
   width: 45px;
   height: 45px;
   transition: transform 0.2s ease-in-out;
 }
 
-.links>img:hover{
+.links > img:hover {
   opacity: 0.7;
   transform: scale(1.1);
-  /* pointer-events: auto; */
 }
 
-.a{
+.a {
   width: 150px;
 }
 
-.imagelogo{
+.imagelogo {
   margin: 15px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* align-self: center; */
-  /* width: 100px; */
 }
-.imagelogo>span{
+
+.imagelogo > span {
   font-size: 25px;
   padding-top: 12px;
 }
 
-.content{
+.content {
   font-size: 80px;
 }
 
@@ -65,7 +51,7 @@
   border-radius: 5px;
   font-size: 28px;
   padding: 12px 25px;
-  transition: background-color 0.5s ease, border 0.5s ease, font-size 0.2s ease-out; /* Added units to the transition */
+  transition: background-color 0.5s ease, border 0.5s ease, font-size 0.2s ease-out;
 }
 
 .cm:hover {
@@ -74,35 +60,28 @@
   font-size: 32px;
 }
 
-
-.main{
+.main {
   flex: 8.5;
   padding-left: 30px;
   background-color: rgb(97, 97, 97);
   color: aliceblue;
-
+  display: flex; /* Add this line */
+  align-items: center; /* Add this line */
 }
 
-.content {
-  margin-top: 26vh
-}
-
-.sidemenu{
+.sidemenu {
   color: aliceblue;
-  height: screen;
   background-color: rgb(43, 43, 43);
-  height: 100%;
-  flex: 300px;
-  flex: 1.5;
+  flex: 1.5; /* Keep this line */
 }
 
-.about2{
+.about2 {
   display: flex;
   flex-direction: column;
   padding-top: 33px;
 }
 
-.about{
+.about {
   padding: 6px;
   color: aliceblue;
   font-family: raleway;
@@ -112,63 +91,46 @@
   font-size: 25px;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  transition: background-color 0.3s ease, font-size 0.3s ease; 
+  transition: background-color 0.3s ease, font-size 0.3s ease;
 }
 
-.about:hover{
+.about:hover {
   background-color: rgb(99, 70, 180);
   font-size: 30px;
 }
 
-.about:last-child{
+.about:last-child {
   text-align: center;
   font-size: 25px;
-  transition: background-color 0.3s ease, font-size 0.3s ease; 
+  transition: background-color 0.3s ease, font-size 0.3s ease;
 }
 
-.about:last-child:hover{
+.about:last-child:hover {
   background-color: orange;
   font-size: 30px;
 }
 
-.rst{
-  position: relative;
+.qst,
+.sst,
+.cm {
+  opacity: 1;
 }
 
-.fd {
-  position: relative;
-  font-weight: bold;
-  color: #594e8f;
-  display: inline-block; 
-}
-
-.second-d {
-  font-weight: bold;
-  position: relative;
-  top: 0;
-  left: -288px;
-  font-size: 80px;
-  color: #8e87af;
-  opacity: 0.6;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
-  40% {
-    transform: translateY(-3px);
+  .main {
+    padding-top: 15px;
+    max-width: fit-content;
   }
-  60% {
-    transform: translateY(-3px);
+
+  .about2{
+    margin-bottom: 12px;
   }
-}
-.fd, .second-d {
-  position: relative;
-  animation: bounce 5s ease-in-out infinite; /* Apply the "bounce" animation */
-}
-
-
-.qst,  .sst, .cm{
-  opacity: 1; /* Set initial opacity to 0 to make them invisible initially */
+  .sidemenu {
+    /* Remove the duplicate flex property */
+    /* flex: 1.5; */
+  }
+  /* Adjust other styles as needed */
 }

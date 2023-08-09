@@ -57,8 +57,8 @@ function App() {
             <div className="content">
               <div className="qst">Hi,</div>
               <div className="rst">
-                I'm <span className="fd">D</span>arpan,
-                <span className="second-d">D</span>
+                I'm Darpan,
+                {/* Removed the second-d class */}
               </div>
               <div className="sst">Web Developer</div>
               <button className="cm">Contact Me</button>
