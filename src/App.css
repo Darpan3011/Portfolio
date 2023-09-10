@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&family=Raleway:wght@200&display=swap');
 /* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Raleway:wght@200&display=swap');
 .warning {
   font-family: raleway;
   display: flex;
@@ -11,11 +11,10 @@
   font-weight: bolder;
 }
 
-.dj{
+.dj {
   cursor: pointer;
   position: absolute;
   right: 15px;
-  
 }
 
 .container {
@@ -83,14 +82,14 @@
   padding-left: 30px;
   background-color: rgb(97, 97, 97);
   color: aliceblue;
-  display: flex; /* Add this line */
-  align-items: center; /* Add this line */
+  display: flex;
+  align-items: center;
 }
 
 .sidemenu {
   color: aliceblue;
   background-color: rgb(43, 43, 43);
-  flex: 1.5; /* Keep this line */
+  flex: 1.5;
 }
 
 .about2 {
@@ -110,6 +109,11 @@
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   transition: background-color 0.3s ease, font-size 0.3s ease;
+}
+
+.about.active {
+  background-color: rgb(99, 70, 180);
+  font-size: 30px;
 }
 
 .about:hover {
@@ -143,7 +147,7 @@
     max-width: fit-content;
   }
 
-  .about2{
+  .about2 {
     margin-bottom: 12px;
   }
   .sidemenu {
