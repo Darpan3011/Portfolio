@@ -68,19 +68,19 @@
   border-radius: 5px;
   font-size: 28px;
   padding: 12px 25px;
-  transition: background-color 0.5s ease, border 0.5s ease, font-size 0.2s ease-out;
+  transition: background-color 0.5s ease-in-out, border 0.5s ease-in-out, font-size 0.2s ease-in-out;
 }
 
 .cm:hover {
   border: rgb(53, 47, 226) solid 1px;
-  background-color: rgb(103, 33, 188);
+  background-color: rgb(42, 39, 73);
   font-size: 32px;
 }
 
 .main {
   flex: 8.5;
   padding-left: 30px;
-  background-color: rgb(97, 97, 97);
+  background-color: rgb(42, 39, 73);
   color: aliceblue;
   display: flex;
   align-items: center;
@@ -155,4 +155,23 @@
     /* flex: 1.5; */
   }
   /* Adjust other styles as needed */
+}
+/* App.css *//* App.css */
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Adjust the scale factor for the pulse effect */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animatedImage {
+  position: absolute;
+  top: 3px;
+  right: 40px;
+  animation: pulsate 3s ease-in-out infinite; /* Adjust animation duration (3s) and timing function if needed */
 }

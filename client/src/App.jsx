@@ -1,10 +1,12 @@
-import "./App.css";
+import React, { useState } from "react";
+import "./App.css"; // Import your CSS file here
+
 import scc from "./d.png";
 import git from "./github.svg";
 import linked from "./linkedin.svg";
 import leetcode from "./leetcode.svg";
-import { useState } from "react";
-import close from './close.svg';
+import close from "./close.svg";
+import side from "./side.svg";
 
 function App() {
   const [button, setButton] = useState("ast");
@@ -96,11 +98,21 @@ function App() {
               <button className="cm">Contact Me</button>
             </div>
           )}
+          {button === "ast" && (
+            <img
+              className="animatedImage"
+              src={side}
+              alt="imagesds"
+              height={"300px"}
+            />
+          )}
           {button === "gfg" && <div className="content">No skills</div>}
           {button === "ddf" && (
             <div className="content">
               <p style={{ fontSize: "25px" }}>Check out my work:</p>
-              <ul style={{ listStyleType: "none", padding: 0, fontSize: "25px"  }}>
+              <ul
+                style={{ listStyleType: "none", padding: 0, fontSize: "25px" }}
+              >
                 <li>
                   <a
                     href="https://portfolio-two-coral-84.vercel.app/"
