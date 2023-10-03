@@ -118,6 +118,7 @@ function App() {
                     href="https://portfolio-two-coral-84.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color:"pink"}}
                   >
                     Portfolio
                   </a>
@@ -127,6 +128,7 @@ function App() {
                     href="https://booking-app-iota-two.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color:"pink" }}
                   >
                     Booking App
                   </a>
@@ -136,6 +138,7 @@ function App() {
                     href="https://social-media-ashy-three.vercel.app/login"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color:"pink" }}
                   >
                     Social Media App
                   </a>
@@ -145,6 +148,7 @@ function App() {
                     href="https://weather-app-qrx3.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ textDecoration: "none", color:"pink" }}
                   >
                     Weather App
                   </a>
