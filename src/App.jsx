@@ -62,22 +62,10 @@ function App() {
               About
             </button>
             <button
-              className={`about ${activeButton === "gfg" ? "active" : ""}`}
-              onClick={() => handleClick("gfg")}
-            >
-              My Skills
-            </button>
-            <button
               className={`about ${activeButton === "ddf" ? "active" : ""}`}
               onClick={() => handleClick("ddf")}
             >
               Work
-            </button>
-            <button
-              className={`about ${activeButton === "xyz" ? "active" : ""}`}
-              onClick={() => handleClick("xyz")}
-            >
-              Contact
             </button>
             <div className="links">
               <img src={git} alt="Hey" onClick={asd1} />
@@ -95,7 +83,6 @@ function App() {
                 {/* Removed the second-d class */}
               </div>
               <div className="sst">Web Developer</div>
-              <button className="cm">Contact Me</button>
             </div>
           )}
           {button === "ast" && (
@@ -106,7 +93,6 @@ function App() {
               height={"300px"}
             />
           )}
-          {button === "gfg" && <div className="content">No skills</div>}
           {button === "ddf" && (
             <div className="content">
               <p style={{ fontSize: "25px" }}>Check out my work:</p>
@@ -156,7 +142,6 @@ function App() {
               </ul>
             </div>
           )}
-          {button === "xyz" && <div className="content">asdasd</div>}
         </div>
       </div>
     </>
