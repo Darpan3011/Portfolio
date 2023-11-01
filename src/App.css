@@ -175,3 +175,13 @@
   right: 40px;
   animation: pulsate 3s ease-in-out infinite; /* Adjust animation duration (3s) and timing function if needed */
 }
+
+.content a{
+  color: pink;
+  text-decoration: none;
+}
+
+.content a:hover{
+  color: rgb(123, 123, 254);
+  text-decoration: none;
+}
