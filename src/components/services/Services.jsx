@@ -22,7 +22,7 @@ const variants = {
 const Services = () => {
   const ref = useRef();
 
-  const isInView = useInView(ref, { margin: "-100px" });
+  // const isInView = useInView(ref, { margin: "-100px" });
 
   return (
     <motion.div
@@ -36,8 +36,8 @@ const Services = () => {
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
-          I focus on helping your brand grow
-          <br /> and move forward
+          I focus on improving the skills
+          <br /> and grow.
         </p>
         <hr />
       </motion.div>
