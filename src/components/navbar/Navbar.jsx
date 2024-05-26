@@ -1,6 +1,9 @@
 import Sidebar from "../sidebar/Sidebar";
 import "./navbar.scss";
 import { motion } from "framer-motion";
+import linkedin from '../../utils/images/linkedin.png'
+import github from '../../utils/images/github.png'
+import leetcode from '../../utils/images/leetcode.png'
 
 const Navbar = () => {
   return (
@@ -16,11 +19,14 @@ const Navbar = () => {
           Kanani Darpan
         </motion.span>
         <div className="social">
-          <a href="#">
-            <img src="/youtube.png" alt="" />
+          <a href="https://www.linkedin.com/in/darpan-kanani" target="_blank" rel="noreferrer">
+            <img src={linkedin} alt="" style={{height:"50px", width:"50px"}}/>
           </a>
-          <a href="#">
-            <img src="/dribbble.png" alt="" />
+          <a href="https://github.com/Darpan3011" target="_blank" rel="noreferrer">
+            <img src={github} alt="" style={{height:"50px", width:"50px"}}/>
+          </a>
+          <a href="https://leetcode.com/u/Darpan301/" target="_blank" rel="noreferrer">
+            <img src={leetcode} alt="" style={{height:"50px", width:"50px"}}/>
           </a>
         </div>
       </div>
