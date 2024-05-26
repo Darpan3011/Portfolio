@@ -37,9 +37,9 @@ const sliderVariants = {
   },
 };
 
-const handleScroll = () => {
-
-
+function handleClick(loc){
+  // scroll to div having id = loc
+  document.getElementById(loc).scrollIntoView({ behavior: "smooth" });
 }
 
 const Hero = () => {
@@ -56,11 +56,11 @@ const Hero = () => {
           <motion.h1 variants={textVariants}>
             Software Developer
           </motion.h1>
-          <motion.div variants={textVariants} className="buttons">
-            <motion.button variants={textVariants} onClick={handleScroll}>
+          <motion.div variants={textVariants} className="buttons" style={{zIndex:"100"}}>
+            <motion.button onClick={()=>handleClick("Portfolio")}>
               See the Latest Works
             </motion.button>
-            <motion.button variants={textVariants}>Contact Me</motion.button>
+            <motion.button variants={textVariants} onClick={()=>handleClick("Contact")}>Contact Me</motion.button>
           </motion.div>
           <motion.img
             variants={textVariants}
@@ -75,8 +75,9 @@ const Hero = () => {
         variants={sliderVariants}
         initial="initial"
         animate="animate"
+        style={{zIndex:"0"}}
       >
-        Writer Content Creator Influencer
+        Software Developer Web Developer
       </motion.div>
       {/* <div className="imageContainer">
         <img src="/hero.png" alt="" />
