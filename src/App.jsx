@@ -17,11 +17,11 @@ const App = () => {
         <Hero />
       </section>
       <section id="Services">
-        <Parallax type="services" />
+        <Parallax type="Internships" />
       </section>
-      <section>
+      {/* <section>
         <Services />
-      </section>
+      </section> */}
       <section id="Portfolio">
         <Parallax type="portfolio" />
       </section>
