@@ -65,7 +65,7 @@ const Contact = () => {
         </motion.div>
         <motion.div className="item" variants={variants}>
           <h2>Phone</h2>
-          <span>9879880177</span>
+          <a href="tel:+919879880177">+919879880177</a>
         </motion.div>
       </motion.div>
       <div className="formContainer">

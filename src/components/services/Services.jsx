@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import "./services.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import Null from '../../utils/images/Null.png'
+import Patidar from '../../utils/images/Patidar.png'
 
 const items = [
   {
     id: 1,
     title: "NULL INNOVATION",
-    date: "1st Jan - 31st May",
+    date: "1 Jan 2024 - 31 May 2024",
     desc: [
       "Developed a Chrome Extension for Twitter and its corresponding website with Next.js.",
       "Engineered automatic reply generation based on sentiments like positive, happy, negative, etc.",
@@ -19,7 +21,8 @@ const items = [
       { title: "Extension", url: "https://chromewebstore.google.com/detail/tweefeed/kdedcliogoegnmpfepijoghehpacocml?hl=en" },
       { title: "Website", url: "https://dolphy.io/tweefeed" },
       { title: "WordPress", url: "https://www.capitalcompute.com" }
-    ]
+    ],
+    logo: [Null]
   },
   {
     id: 2,
@@ -29,9 +32,10 @@ const items = [
       "Created multiple interactive web pages using React.js, showcasing strong front-end development skills.",
       "Ensured user data security by implementing robust user authentication methods, securely storing access tokens and userinformation in local storage."
     ],
-    date: "1st Jan - 31st May",
+    date: "15 May 2023 - 15 July 2023",
     link: "https://social-media-ashy-three.vercel.app/login",
-    wordDone: [] // You can add wordDone for this item if needed
+    wordDone: [], // You can add wordDone for this item if needed
+    logo: [Patidar]
   }
 ];
 
@@ -49,7 +53,17 @@ const Single = ({ item }) => {
       <div className="container">
         <div className="wrapper2" style={{overflowY:"auto"}}>
           <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{display:"flex", gap:"5px", alignItems:"start", flexDirection:"column"}}>
+              {/* add logo list here */}
+              {/* {item.logo.map((asdf, idx)=>(
+                <img src={asdf} alt={asdf} key={idx}/>
+              ))} */}
+              {item.logo.map((logo, idx) => (
+                <img src={logo} alt={`Logo ${idx}`} key={idx} style={{ height: "40px" }} />
+              ))}
             <h2>{item.title}</h2>
+
+            </div>
             <h5>{item.date}</h5>
           </div>
           <ul style={{ paddingLeft: "30px" }}>
