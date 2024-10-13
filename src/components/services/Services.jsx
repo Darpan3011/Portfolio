@@ -1,14 +1,42 @@
 import { useRef } from "react";
 import "./services.scss";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useScroll, useSpring, useTransform } from "framer-motion";
 import Null from '../../utils/images/Null.png'
 import Patidar from '../../utils/images/Patidar.png'
+import Dash from '../../utils/images/Dash_Logo.svg'
 
 const items = [
   {
     id: 1,
+    title: "Dash Technologies",
+    date: "Aug 2024 - Present",
+    desc: [
+      "Collaborated with senior developers to designand implement new features, focusing on scalability and code maintainability.",
+      "Implemented routing and middleware components in ASP.NET Core to enhance request processing and performance.",
+      "Engaged in debugging and troubleshooting to resolve bugs and enhance the overall performance of web applications.",
+      "Regularly engaged in learning new frameworks and technologies, applying themtoreal-worldprojects."
+    ],
+    link: "https://dashtechinc.com/",
+    wordDone: [],
+    logo: [Dash]
+  },
+  {
+    id: 2,
+    title: "Patidar IT",
+    date: "Jun 2024 - Aug 2024",
+    desc: [
+      "Developed multiple user-friendly, responsive webpages, ensuring cross-device compatibility and improving user experience by 25%.",
+      "Integrated various RESTAPIs, enhancing the functionality and interconnectivity of the application with external services by 30%.",
+      "Implemented Redux for efficient global state management,reducing code complexity by 20% and improving scalability by 40%"
+    ],
+    link: "https://patidarit.com/",
+    wordDone: [],
+    logo: [Patidar]
+  },
+  {
+    id: 3,
     title: "NULL INNOVATION",
-    date: "1 Jan 2024 - 31 May 2024",
+    date: "Jan 2024 - May 2024",
     desc: [
       "Developed a Chrome Extension for Twitter and its corresponding website with Next.js.",
       "Engineered automatic reply generation based on sentiments like positive, happy, negative, etc.",
@@ -16,7 +44,7 @@ const items = [
       "Emphasized user-friendly responsive design for an enhanced experience.",
       "Successfully integrated the Stripe payment gateway."
     ],
-    link: "https://booking-app-iota-two.vercel.app/",
+    link: "https://dolphy.io/",
     wordDone: [
       { title: "Extension", url: "https://chromewebstore.google.com/detail/tweefeed/kdedcliogoegnmpfepijoghehpacocml?hl=en" },
       { title: "Website", url: "https://dolphy.io/tweefeed" },
@@ -25,15 +53,15 @@ const items = [
     logo: [Null]
   },
   {
-    id: 2,
+    id: 4,
     title: "Patidar IT",
     desc: [
       "Proficiently learned and applied the MERN stack, gaining valuable experience in modern web development technologies.",
       "Created multiple interactive web pages using React.js, showcasing strong front-end development skills.",
       "Ensured user data security by implementing robust user authentication methods, securely storing access tokens and userinformation in local storage."
     ],
-    date: "15 May 2023 - 15 July 2023",
-    link: "https://social-media-ashy-three.vercel.app/login",
+    date: "May 2023 - July 2023",
+    link: "https://patidarit.com/",
     wordDone: [], // You can add wordDone for this item if needed
     logo: [Patidar]
   }
@@ -59,7 +87,9 @@ const Single = ({ item }) => {
                 <img src={asdf} alt={asdf} key={idx}/>
               ))} */}
               {item.logo.map((logo, idx) => (
-                <img src={logo} alt={`Logo ${idx}`} key={idx} style={{ height: "40px" }} />
+                <a key={idx} href={item.link}>
+                <img src={logo} alt={`Logo ${idx}`}  style={{ height: "40px" }} />
+                </a>
               ))}
             <h2>{item.title}</h2>
 
@@ -75,6 +105,7 @@ const Single = ({ item }) => {
             <h3>Work Done Links</h3>
             <ul style={{ display: "flex", flexDirection: "column", paddingLeft: "30px", gap:"15px" }}>
               {item.wordDone.map((link, idx) => (
+                // eslint-disable-next-line react/jsx-key
                 <li> <a key={idx} href={link.url} target="_blank" rel="noopener noreferrer">
                   {link.title}
                 </a></li>
