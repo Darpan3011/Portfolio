@@ -14,7 +14,7 @@ const items = [
       "Collaborated with senior developers to designand implement new features, focusing on scalability and code maintainability.",
       "Implemented routing and middleware components in ASP.NET Core to enhance request processing and performance.",
       "Engaged in debugging and troubleshooting to resolve bugs and enhance the overall performance of web applications.",
-      "Regularly engaged in learning new frameworks and technologies, applying themtoreal-worldprojects."
+      "Regularly engaged in learning new frameworks and technologies, applying them to real world projects."
     ],
     link: "https://dashtechinc.com/",
     wordDone: [],
