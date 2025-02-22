@@ -24,8 +24,13 @@ const itemVariants = {
   },
 };
 
-const Links = () => {
-  const items = ["Homepage", "Work Done", "Projects", "Contact", "About"];
+const Links = ({setOpen}) => {
+
+  const handleClick = () => {
+    setOpen(false); // Close sidebar when a link is clicked
+  };
+
+  const items = ["Homepage", "Work Done", "Projects", "Contact"];
 
   return (
     <motion.div className="links" variants={variants}>
@@ -36,6 +41,7 @@ const Links = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleClick}
         >
           {item}
         </motion.a>

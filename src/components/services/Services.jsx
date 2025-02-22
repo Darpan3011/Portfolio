@@ -7,9 +7,24 @@ import Dash from '../../utils/images/Dash_Logo.svg'
 
 const items = [
   {
+    id: 0,
+    title: "Dash Technologies",
+    date: "Feb 2025 - Present",
+    position: "Junior Software Engineer",
+    desc: [
+      "Refactored existing Spring Boot services, reducing redundant code by 15% and improving maintainability.",
+      "Optimized API request validation, reducing malformed requests by 20%, ensuring data consistency.",
+      "Enhanced database queries, improving response time by 10-15% for frequently accessed endpoints."
+    ],
+    link: "https://dashtechinc.com/",
+    wordDone: [],
+    logo: [Dash]
+  },
+  {
     id: 1,
     title: "Dash Technologies",
-    date: "Aug 2024 - Present",
+    date: "Aug 2024 - Feb 2025",
+    position: "Full Stack Developer Intern",
     desc: [
       "Collaborated with senior developers to designand implement new features, focusing on scalability and code maintainability.",
       "Implemented routing and middleware components in ASP.NET Core to enhance request processing and performance.",
@@ -17,13 +32,16 @@ const items = [
       "Regularly engaged in learning new frameworks and technologies, applying them to real world projects."
     ],
     link: "https://dashtechinc.com/",
-    wordDone: [],
+    wordDone: [
+      {title: "Spill-rx", url: "https://spill-rx.com/"}
+    ],
     logo: [Dash]
   },
   {
     id: 2,
     title: "Patidar IT",
     date: "Jun 2024 - Aug 2024",
+    position: "Frontend developer",
     desc: [
       "Developed multiple user-friendly, responsive webpages, ensuring cross-device compatibility and improving user experience by 25%.",
       "Integrated various RESTAPIs, enhancing the functionality and interconnectivity of the application with external services by 30%.",
@@ -37,6 +55,7 @@ const items = [
     id: 3,
     title: "NULL INNOVATION",
     date: "Jan 2024 - May 2024",
+    position: "Frontend developer Intern",
     desc: [
       "Developed a Chrome Extension for Twitter and its corresponding website with Next.js.",
       "Engineered automatic reply generation based on sentiments like positive, happy, negative, etc.",
@@ -61,6 +80,7 @@ const items = [
       "Ensured user data security by implementing robust user authentication methods, securely storing access tokens and userinformation in local storage."
     ],
     date: "May 2023 - July 2023",
+    position: "Frontend developer Intern",
     link: "https://patidarit.com/",
     wordDone: [], // You can add wordDone for this item if needed
     logo: [Patidar]
@@ -81,7 +101,7 @@ const Single = ({ item }) => {
       <div className="container">
         <div className="wrapper2" style={{overflowY:"auto"}}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{display:"flex", gap:"5px", alignItems:"start", flexDirection:"column"}}>
+            <div style={{display:"flex", gap:"5px", alignItems:"start", flexDirection:"column", marginBottom:"10px"}}>
               {/* add logo list here */}
               {/* {item.logo.map((asdf, idx)=>(
                 <img src={asdf} alt={asdf} key={idx}/>
@@ -92,6 +112,7 @@ const Single = ({ item }) => {
                 </a>
               ))}
             <h2>{item.title}</h2>
+            <h3>{item.position}</h3>
 
             </div>
             <h5>{item.date}</h5>
