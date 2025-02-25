@@ -30,7 +30,7 @@ const Links = ({setOpen}) => {
     setOpen(false); // Close sidebar when a link is clicked
   };
 
-  const items = ["Homepage", "Work Done", "Projects", "Contact"];
+  const items = ["Homepage", "Experience", "Projects", "Contact"];
 
   return (
     <motion.div className="links" variants={variants}>

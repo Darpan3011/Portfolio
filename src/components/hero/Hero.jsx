@@ -57,8 +57,8 @@ const Hero = () => {
             Software Developer
           </motion.h1>
           <motion.div variants={textVariants} className="buttons" style={{zIndex:"100"}}>
-            <motion.button onClick={()=>handleClick("Work Done")}>
-              See the Latest Works
+            <motion.button onClick={()=>handleClick("Experience")}>
+              Visit the Experience
             </motion.button>
             <motion.button variants={textVariants} onClick={()=>handleClick("Contact")}>Contact Me</motion.button>
           </motion.div>

@@ -4,8 +4,24 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import booking from '../../utils/images/Booking.png'
 import social from '../../utils/images/Social.png'
 import weather from '../../utils/images/Weather.png'
+import TaskBackend from '../../utils/images/TaskManagemntBackend.jpeg'
+import TaskFrontend from '../../utils/images/TaskFrontend.png'
 
 const items = [
+  {
+    id: -1,
+    title: "Task Management Backend",
+    img: TaskBackend,
+    desc: "Manage, Assign task to users with Authentication and Authorization.",
+    link: "https://github.com/Darpan3011/darpan_dotNet_taskManagment"
+  },
+  {
+    id: 0,
+    title: "Task Management Frontend",
+    img: TaskFrontend,
+    desc: "UI for Task Management backend.",
+    link: "https://github.com/Darpan3011/TaskManagementUI"
+  },
   {
     id: 1,
     title: "Hotel Booking",
@@ -26,7 +42,7 @@ const items = [
     img: weather,
     desc: "Get weather info based on city name and zipcode.",
     link: "https://weather-app-qrx3.vercel.app/"
-  },
+  }
 ];
 
 function handleClick(link) {
