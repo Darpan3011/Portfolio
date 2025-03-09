@@ -52,7 +52,7 @@ const projects = [
 
 const Projects = () => {
 
-    const [selectedImage, setSelectedImage] = useState<any>(null);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     
   return (
     <>
@@ -63,7 +63,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div key={index} className="bg-gray-800 p-8 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                <Image src={project.img} alt={project.title} width={500} className="rounded-md cursor-pointer" onClick={() => setSelectedImage(project.img)} />
+                <Image src={project.img} alt={project.title} width={500} className="rounded-md cursor-pointer" onClick={() => setSelectedImage(project.img.src)} />
                 <div className="text-left">
                   <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                   <p className="text-gray-300 mt-2">{project.desc}</p>

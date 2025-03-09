@@ -8,25 +8,28 @@ import Projects from "./components/Projects";
 export default function Home() {
 
   useEffect(() => {
-    const handleSmoothScroll = (e:any) => {
+    const handleSmoothScroll = (e: MouseEvent) => {
       e.preventDefault();
-      const targetId = e.currentTarget.getAttribute("href").substring(1);
-      const targetSection = document.getElementById(targetId);
+      const target = e.currentTarget as HTMLAnchorElement;
+      const targetId = target.getAttribute("href")?.substring(1);
+      const targetSection = targetId ? document.getElementById(targetId) : null;
+      
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: "smooth" });
       }
     };
 
-    document.querySelectorAll(".nav-link").forEach((link) => {
+    document.querySelectorAll<HTMLAnchorElement>(".nav-link").forEach((link) => {
       link.addEventListener("click", handleSmoothScroll);
     });
 
     return () => {
-      document.querySelectorAll(".nav-link").forEach((link) => {
+      document.querySelectorAll<HTMLAnchorElement>(".nav-link").forEach((link) => {
         link.removeEventListener("click", handleSmoothScroll);
       });
     };
   }, []);
+
   
   return (
     
