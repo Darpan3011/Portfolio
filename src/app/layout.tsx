@@ -8,13 +8,14 @@ import Navbar from "@/app/components/Navbar";
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://darpan-portfolio.vercel.app"),
   title: "Darpan Kanani | Software Engineer",
-  description: "Darpan Kanani - Full Stack Developer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
-  keywords: "Darpan Kanani, Full Stack Developer, .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, Tailwind CSS, Portfolio",
+  description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
+  keywords: "Darpan Kanani, Software Engineer, Full Stack Developer, .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, Tailwind CSS, Portfolio",
   authors: [{ name: "Darpan Kanani" }],
   openGraph: {
-    title: "Darpan Kanani | Full Stack Developer",
-    description: "Check out my work and experience in full stack development.",
+    title: "Darpan Kanani | Software Engineer",
+    description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
     url: "https://darpan-portfolio.vercel.app/",
     images: [
       {
@@ -25,7 +26,13 @@ export const metadata: Metadata = {
       },
     ],
     type: "website",
-  }
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Darpan Kanani | Full Stack Developer",
+    description: "Explore my portfolio showcasing skills in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS.",
+    images: ["/profile.png"],
+  },
 };
 
 export default function RootLayout({
