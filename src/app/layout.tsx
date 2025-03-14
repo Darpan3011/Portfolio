@@ -1,10 +1,7 @@
-
-
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
-import Head from "next/head";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
