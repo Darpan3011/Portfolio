@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
+import Head from "next/head";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
   keywords: "Darpan Kanani, Software Engineer, Full Stack Developer, .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, Tailwind CSS, Portfolio",
   authors: [{ name: "Darpan Kanani" }],
+  icons: '/favicon.ico',
   openGraph: {
     title: "Darpan Kanani | Software Engineer",
     description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
