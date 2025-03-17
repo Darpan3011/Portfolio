@@ -4,7 +4,6 @@ import Dash from '../utils/images/Dash_Logo.svg'
 
 export const experiences = [
     {
-      id: 0,
       title: "Dash Technologies",
       date: "Feb 2025 - Present",
       position: "Junior Software Engineer",
@@ -20,7 +19,6 @@ export const experiences = [
       logo: [Dash]
     },
     {
-      id: 1,
       title: "Dash Technologies",
       date: "Aug 2024 - Feb 2025",
       position: "Full Stack Developer Intern",
@@ -37,7 +35,6 @@ export const experiences = [
       logo: [Dash]
     },
     {
-      id: 2,
       title: "Patidar IT",
       date: "Jun 2024 - Aug 2024",
       position: "Frontend developer",
@@ -51,7 +48,6 @@ export const experiences = [
       logo: [Patidar]
     },
     {
-      id: 3,
       title: "NULL INNOVATION",
       date: "Jan 2024 - May 2024",
       position: "Frontend developer Intern",
@@ -71,7 +67,6 @@ export const experiences = [
       logo: [Null]
     },
     {
-      id: 4,
       title: "Patidar IT",
       desc: [
         "Proficiently learned and applied the MERN stack, gaining valuable experience in modern web development technologies.",
