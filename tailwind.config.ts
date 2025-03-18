@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { DEFAULT_CIPHERS } from "tls";
 
 export default {
     darkMode: ["class"],
@@ -10,7 +11,14 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			background: 'hsl(var(--background))',
+  			background: {
+				DEFAULT :'hsl(var(--background))',
+				color1: '#070F2B',
+				color2: '#1B1A55',
+				color3: '#535C91',
+				color4: '#9290C3',
+
+			},
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',

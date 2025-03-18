@@ -8,12 +8,12 @@ import { experiences } from '@/static/Experience';
 
 const Experience = () => {
   return (
-    <motion.section id="experience" className="bg-gray-950"
+    <motion.section id="experience"
     initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
     <h2 className="text-4xl font-semibold mb-6">Experience</h2>
     <div className="mx-auto space-y-8">
       {experiences.map((exp, index) => (
-        <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div key={index} className="bg-background-color2 p-6 rounded-lg shadow-lg">
           <div className="flex items-center gap-4">
             <Image src={exp.logo[0]} alt={exp.title} width={50} height={50} />
             <div>

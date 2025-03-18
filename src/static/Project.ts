@@ -21,7 +21,7 @@ export const projects = [
     {
       title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",
       img: underConstru,
-      desc: "(Under Development check github for code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
+      desc: "(Under Development check Github code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
       link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
     },
     {
