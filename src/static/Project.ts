@@ -4,6 +4,7 @@ import weather from '../utils/images/Weather.png'
 import TaskBackend from '../utils/images/TaskManagemntBackend.jpeg'
 import TaskFrontend from '../utils/images/TaskFrontend.png'
 import underConstru from '../utils/images/underConstruction.png'
+import chat from '../utils/images/chat.png'
 
 export const projects = [
     {
@@ -23,6 +24,12 @@ export const projects = [
       img: underConstru,
       desc: "(Under Development check Github code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
       link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
+    },
+    {
+      title: "Real Time Chating app with Websocket and Spring Security (Java SpringBoot)",
+      img: chat,
+      desc: "Chat publicily and personally with someone with login functionality.",
+      link: "https://github.com/Darpan3011/ChatApplicationWithPrivateChats"
     },
     {
       title: "Hotel Booking (MERN)",
