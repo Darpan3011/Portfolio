@@ -38,7 +38,7 @@ const Projects = () => {
       {/* Enlarged Image Modal */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={() => setSelectedImage(null)}>
-          <Image src={selectedImage} alt="Project Screenshot" width={800} height={500} className="rounded-lg shadow-lg" />
+          <Image src={selectedImage} alt="Project Screenshot" width={1200} height={600} className="rounded-lg shadow-lg" />
         </div>
       )}
   </>
