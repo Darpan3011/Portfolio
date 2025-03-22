@@ -14,10 +14,6 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-/* Hide Scrollbar Globally
-::-webkit-scrollbar {
-  display: none;
-} */
 
 @layer base {
   :root {
@@ -38,27 +34,13 @@ body {
     --radius: 0.75rem;
   }
 
-  .dark {
-    --background: 240 10% 3%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 98%;
-    --primary: 220 90% 50%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 10% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 10% 20%;
-    --muted-foreground: 0 0% 75%;
-    --accent: 220 90% 50%;
-    --accent-foreground: 0 0% 98%;
-    --border: 240 10% 25%;
-    --input: 240 10% 15%;
-  }
 }
 
 @layer base {
   * {
     @apply border-border transition-all duration-300;
+    scrollbar-width: thin;
+    scrollbar-color: #d7d7d7 #535C91;
   }
   body {
     @apply bg-background text-foreground leading-relaxed;
