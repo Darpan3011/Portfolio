@@ -50,9 +50,6 @@ const About = () => {
             </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-4">
-            <a href="/Darpan_Kanani.pdf" target="_blank" rel="noopener noreferrer" className="inline-block bg-yellow-500 text-gray-900 px-4 py-2 rounded-md hover:bg-yellow-400 transition-all">
-              View Resume
-            </a>
             <Link href="https://github.com/Darpan3011" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-all">
               GitHub
             </Link>
