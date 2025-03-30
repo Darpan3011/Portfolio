@@ -5,7 +5,7 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <motion.section id="contact" className="bg-[#1a1945] text-center rounded-lg py-24"
+    <motion.section id="contact" className="bg-[#1a1945] text-center rounded-lg py-24 my-24"
         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
         <motion.h2 
         className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-500 to-blue-800 mb-6"

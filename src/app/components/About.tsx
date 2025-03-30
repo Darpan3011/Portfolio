@@ -8,13 +8,13 @@ import Image from 'next/image';
 
 const About = () => {
   return (
-    <motion.section id="about"
+    <motion.section id="about" className='pt-24'
       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-      <h2 className="text-4xl font-semibold pb-6" id="about-heading">About Me</h2>
+      <h2 className="text-4xl font-semibold pb-4" id="about-heading">About Me</h2>
       <div className="mx-auto bg-background-color2 px-8 py-14 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
         {/* Left Section - Image and Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/3 p-4 rounded-lg bg-background-color2 shadow-md space-y-3">
-          <Image src={ProfileImg} alt="Darpan Kanani" width={160} height={160} className="rounded-full shadow-lg border-2 border-gray-300 object-cover mb-2"/>
+          <Image src={ProfileImg} alt="Darpan Kanani" width={160} height={160} className="rounded-full shadow-lg border-2 border-gray-300 object-cover mb-2" />
           <h3 className="text-3xl font-extrabold text-white">Darpan Kanani</h3>
           <p className="text-gray-300 text-sm leading-tight">
             <span className="font-semibold text-white">Experience:</span> 1.5+ years

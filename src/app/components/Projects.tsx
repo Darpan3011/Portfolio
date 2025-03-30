@@ -12,10 +12,10 @@ const Projects = () => {
     
   return (
     <>
-     <motion.section id="projects"
+     <motion.section id="projects" className='pt-24'
         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-        <h2 className="text-4xl font-semibold mb-6">Projects</h2>
-        <div className="mx-auto space-y-12">
+        <h2 className="text-4xl font-semibold pb-6">Projects</h2>
+        <div className="mx-auto space-y-8">
           {projects.map((project, index) => (
             <motion.div key={index} className="bg-background-color2 p-8 rounded-lg shadow-lg">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">

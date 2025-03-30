@@ -8,9 +8,9 @@ import { experiences } from '@/static/Experience';
 
 const Experience = () => {
   return (
-    <motion.section id="experience"
+    <motion.section id="experience" className='pt-24'
     initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-    <h2 className="text-4xl font-semibold mb-6">Experience</h2>
+    <h2 className="text-4xl font-semibold pb-4">Experience</h2>
     <div className="mx-auto space-y-8">
       {experiences.map((exp, index) => (
         <div key={index} className="bg-background-color2 p-6 rounded-lg shadow-lg">
