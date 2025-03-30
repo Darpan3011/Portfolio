@@ -30,7 +30,7 @@ const About = () => {
         </div>
 
         {/* Right Section - Skills and Experience */}
-        <div className="text-left w-2/3">
+        <div className="text-left md:w-2/3 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 text-gray-300">
             <div>
               <p className="text-lg font-semibold text-yellow-400">Experience</p>
