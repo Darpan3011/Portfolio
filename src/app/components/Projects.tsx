@@ -17,7 +17,7 @@ const Projects = () => {
         <h2 className="text-4xl font-semibold mb-6">Projects</h2>
         <div className="mx-auto space-y-12">
           {projects.map((project, index) => (
-            <motion.div key={index} className="bg-background-color2 p-8 rounded-lg shadow-lg hover:scale-105 transition transform duration-300">
+            <motion.div key={index} className="bg-background-color2 p-8 rounded-lg shadow-lg">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                 <Image src={project.img} alt={project.title} width={500} className="rounded-md cursor-pointer" onClick={() => setSelectedImage(project.img.src)} />
                 <div className="text-left">

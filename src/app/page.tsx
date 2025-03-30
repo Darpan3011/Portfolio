@@ -33,7 +33,7 @@ export default function Home() {
   
   return (
     
-    <div className="py-24 flex flex-col gap-32">
+    <div className="py-24 flex flex-col gap-28">
       <About/>  
       <Experience />
       <Projects />
