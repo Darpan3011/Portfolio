@@ -24,8 +24,9 @@ export default function Navbar() {
 
         {/* Hamburger menu for mobile */}
         <div className="md:hidden flex items-center">
-          <button onClick={toggleMenu} className="text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
+          <button onClick={toggleMenu} className={`text-white transition-all duration-900 ${isMenuOpen ? "rotate-90" : ""}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" 
+              className={`h-6 w-6 transform transition-all duration-900 ${isMenuOpen ? "rotate-45" : ""}`}>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
@@ -35,10 +36,10 @@ export default function Navbar() {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center space-y-4 py-4 bg-background-color2">
-          <Link href="#about" className="nav-link text-gray-300 hover:text-yellow-400" data-offset="150">About</Link>
-          <Link href="#experience" className="nav-link text-gray-300 hover:text-yellow-400" data-offset="150">Experience</Link>
-          <Link href="#projects" className="nav-link text-gray-300 hover:text-yellow-400" data-offset="150">Projects</Link>
-          <Link href="#contact" className="nav-link text-gray-300 hover:text-yellow-400" data-offset="150">Contact</Link>
+          <Link href="#about" className="nav-link text-gray-300 hover:text-yellow-400" onClick={toggleMenu}>About</Link>
+          <Link href="#experience" className="nav-link text-gray-300 hover:text-yellow-400" onClick={toggleMenu}>Experience</Link>
+          <Link href="#projects" className="nav-link text-gray-300 hover:text-yellow-400" onClick={toggleMenu}>Projects</Link>
+          <Link href="#contact" className="nav-link text-gray-300 hover:text-yellow-400" onClick={toggleMenu}>Contact</Link>
         </div>
       )}
     </nav>
