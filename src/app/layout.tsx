@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.className}`}>
       <body>
         <Navbar/>
-        <main className="container mx-auto px-6">{children}</main>
+        <main className="container">{children}</main>
       </body>
     </html>
   );
