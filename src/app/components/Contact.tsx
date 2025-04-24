@@ -30,7 +30,7 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
         >
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the channels below!
+          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out through any of the channels below!
         </motion.p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">

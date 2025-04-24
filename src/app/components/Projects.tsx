@@ -8,7 +8,6 @@ import { projects } from '@/static/Project';
 
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   
   return (
     <>
@@ -31,8 +30,6 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredProject(index)}
-              onHoverEnd={() => setHoveredProject(null)}
               className="bg-gradient-to-br from-background-color2 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-800 hover:border-yellow-400/50 transition-colors duration-300"
             >
               <div className="flex flex-col md:flex-row items-start gap-8">
