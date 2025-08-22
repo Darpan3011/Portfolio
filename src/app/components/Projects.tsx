@@ -38,14 +38,16 @@ const Projects = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                   className="relative group w-full md:w-1/2"
                 >
-                  <Image 
-                    src={project.img} 
-                    alt={project.title} 
-                    width={500} 
-                    height={300}
-                    className="rounded-xl shadow-xl border-2 border-gray-800 cursor-pointer object-cover" 
-                    onClick={() => setSelectedImage(project.img.src)}
-                  />
+                  <div className="h-80 w-full overflow-hidden rounded-xl shadow-xl border-2 border-gray-800">
+                    <Image 
+                      src={project.img} 
+                      alt={project.title} 
+                      width={500} 
+                      height={300}
+                      className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300" 
+                      onClick={() => setSelectedImage(project.img.src)}
+                    />
+                  </div>
                   
                 </motion.div>
                 <div className="text-left w-full md:w-1/2">
@@ -116,24 +118,26 @@ const Projects = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-4xl w-full"
+              className="relative max-w-6xl max-h-[90vh] w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-yellow-400 transition-colors duration-300"
+                className="absolute -top-12 right-0 text-white hover:text-yellow-400 transition-colors duration-300 z-10"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <Image 
-                src={selectedImage} 
-                alt="Project Screenshot" 
-                width={1200} 
-                height={600} 
-                className="rounded-2xl shadow-2xl border-2 border-gray-800"
-              />
+              <div className="max-h-[90vh] overflow-auto rounded-2xl shadow-2xl border-2 border-gray-800">
+                <Image 
+                  src={selectedImage} 
+                  alt="Project Screenshot" 
+                  width={1200} 
+                  height={600} 
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
             </motion.div>
           </motion.div>
         )}

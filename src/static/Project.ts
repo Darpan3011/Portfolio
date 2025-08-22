@@ -4,9 +4,16 @@ import weather from '../utils/images/Weather.png'
 import TaskBackend from '../utils/images/TaskManagemntBackend.jpeg'
 import TaskFrontend from '../utils/images/TaskFrontend.png'
 import underConstru from '../utils/images/underConstruction.png'
+import VotingSystem from '../utils/images/VoteSystem.png'
 import chat from '../utils/images/chat.png'
 
 export const projects = [
+    {
+      title: "Voting System with Blockchain (Java SpringBoot)",
+      img: VotingSystem,
+      desc: "Admin can create election, add candidates and voters. Voters can vote for their preferred candidate. . Blockchain is used to store the votes and ensure the integrity of the voting process.",
+      link: "https://github.com/Darpan3011/Voting-System-SpringBoot-BlockChain"
+    },
     {
       title: "Task Management Backend (.NET)",
       img: TaskBackend,
