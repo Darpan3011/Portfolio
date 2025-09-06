@@ -71,15 +71,15 @@ const About = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className="p-5 rounded-lg bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-yellow-400/50 transition-colors duration-300">
               <p className="text-lg font-semibold text-yellow-400 mb-2">Backend Expertise</p>
-              <p className="text-gray-300 leading-relaxed">Mastery in Java, C#, Spring Boot, and advanced database management with MongoDB & MySQL.</p>
+              <p className="text-gray-300 leading-relaxed">Mastery in Java, C#, Spring Boot, and advanced database management with MySQL, PostgresSQL and MongoDB.</p>
             </motion.div>
-            <motion.div 
+            {/* <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="p-5 rounded-lg bg-gray-900/50 backdrop-blur-sm border border-gray-800 hover:border-yellow-400/50 transition-colors duration-300">
               <p className="text-lg font-semibold text-yellow-400 mb-2">Cloud & DevOps</p>
               <p className="text-gray-300 leading-relaxed">Expert in AWS services, implementing robust CI/CD pipelines, and modern deployment strategies.</p>
-            </motion.div>
+            </motion.div> */}
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}

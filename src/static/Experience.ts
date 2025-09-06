@@ -8,9 +8,11 @@ export const experiences = [
       date: "Feb 2025 - Present",
       position: "Junior Software Engineer",
       desc: [
-        "Refactored existing Spring Boot services, reducing redundant code by 15% and improving maintainability.",
-        "Optimized API request validation, reducing malformed requests by 20%, ensuring data consistency.",
-        "Enhanced database queries, improving response time by 10-15% for frequently accessed endpoints."
+        "Boosted performance by 10x by integrating Redis caching with RedisTemplate to minimize database calls",
+        "Resolved 2200+ SonarQube blockers, critical issues, and code smells, significantly improving code quality",
+        "Debugged and resolved 15+ high-priority production issues, increasing application stability and lowering user-reported incidents",
+        "Optimized high-traffic database queries, reducing response times by 10-15%",
+        "Standardized global exception handling, eliminating duplicate code and doubling error-handling efficiency with consistent response formatting"
       ],
       link: "https://dashtechinc.com/",
       wordDone: [
