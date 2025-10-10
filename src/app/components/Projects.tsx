@@ -7,7 +7,7 @@ import Image from "next/image";
 import { projects } from '@/static/Project';
 
 const Projects = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<typeof projects[0]['img'] | null>(null);
   
   return (
     <>
@@ -45,7 +45,7 @@ const Projects = () => {
                       width={500} 
                       height={300}
                       className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-300" 
-                      onClick={() => setSelectedImage(project.img.src)}
+                      onClick={() => setSelectedImage(project.img)}
                     />
                   </div>
                   

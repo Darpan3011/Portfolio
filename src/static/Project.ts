@@ -6,13 +6,27 @@ import TaskFrontend from '../utils/images/TaskFrontend.png'
 import underConstru from '../utils/images/underConstruction.png'
 import VotingSystem from '../utils/images/VoteSystem.png'
 import chat from '../utils/images/chat.png'
+import springSecurity from '../utils/images/springSecurity.png'
+import AuditSpringBoot from '../utils/images/AuditSpringBoot.png'
 
 export const projects = [
     {
-      title: "Voting System with Blockchain (Java SpringBoot)",
+      title: "Voting System with Blockchain (Java SpringBoot Spring Security SQL JPA)",
       img: VotingSystem,
       desc: "Admin can create election, add candidates and voters. Voters can vote for their preferred candidate. . Blockchain is used to store the votes and ensure the integrity of the voting process.",
       link: "https://github.com/Darpan3011/Voting-System-SpringBoot-BlockChain"
+    },
+    {
+      title: "Reusable Spring Security Starter Setup (Java SpringBoot JWT Spring Security JPA)",
+      img: springSecurity,
+      desc: "Developed a Spring Boot starter module for JWT-based authentication and session management, enabling quick integration, secure user handling (registration, login, logout), and automated Spring Security setup with token blacklisting, reducing setup and configuration time by up to 90%.",
+      link: "https://github.com/Darpan3011/reusable-jwt-security-dependency.git"
+    },
+    {
+      title: "Audit models in Spring Boot (Java SpringBoot Spring Security JPA)",
+      img: AuditSpringBoot,
+      desc: "Updated the Spring Boot application to include audit models for tracking changes made to data with date and user details, enhancing data integrity and compliance with regulatory requirements.",
+      link: "https://github.com/Darpan3011/Audit-in-springboot.git"
     },
     {
       title: "Task Management Backend (.NET)",
