@@ -53,11 +53,11 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass rounded-2xl p-8"
+            className="glass rounded-2xl p-4"
           >
             <h3 className="text-2xl font-bold mb-6 gradient-text">Send me a message</h3>
             
@@ -144,13 +144,13 @@ const Contact = () => {
 
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="glass rounded-2xl p-8">
+            <div className="glass rounded-2xl p-4">
               <h3 className="text-2xl font-bold mb-6 gradient-text">Let&apos;s connect</h3>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 I&apos;m always excited to discuss new opportunities, collaborate on interesting projects, 
