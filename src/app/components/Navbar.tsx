@@ -6,11 +6,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Update active section based on scroll position
+      const sections = ['about', 'skills', 'experience', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,6 +38,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '#about', text: 'About' },
+    { href: '#skills', text: 'Skills' },
     { href: '#experience', text: 'Experience' },
     { href: '#projects', text: 'Projects' },
     { href: '#contact', text: 'Contact' }
@@ -31,27 +49,27 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-gradient-to-br from-background-color2/95 to-gray-900/95 backdrop-blur-md py-3 shadow-2xl' 
+          ? 'glass py-3 shadow-2xl border-b border-border' 
           : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Link 
             href="#" 
-            className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent hover:from-yellow-400 hover:to-yellow-200 transition-all duration-300"
+            className="text-2xl font-bold gradient-text hover:scale-105 transition-all duration-300"
           >
             Darpan Kanani
           </Link>
         </motion.div>
         
         {/* Desktop menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link, index) => (
             <motion.div
               key={link.href}
@@ -61,14 +79,41 @@ export default function Navbar() {
             >
               <Link 
                 href={link.href} 
-                className="nav-link relative text-gray-300 hover:text-yellow-400 transition-all duration-300 group"
+                className={`nav-link relative px-3 py-2 rounded-lg transition-all duration-300 group ${
+                  activeSection === link.href.substring(1)
+                    ? 'text-primary bg-primary/10'
+                    : 'text-muted-foreground hover:text-white hover:bg-card'
+                }`}
                 data-offset="150"
               >
                 {link.text}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-200 transition-all duration-300 group-hover:w-full"></span>
+                {activeSection === link.href.substring(1) && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
               </Link>
             </motion.div>
           ))}
+          
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+          >
+            <Link
+              href="#contact"
+              className="nav-link inline-flex items-center px-6 py-2 bg-primary text-white rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold shadow-lg hover:shadow-glow group"
+            >
+              Let&apos;s Talk
+              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
         </div>
 
         {/* Hamburger menu for mobile */}
@@ -79,7 +124,7 @@ export default function Navbar() {
         >
           <button 
             onClick={toggleMenu} 
-            className="text-white transition-all duration-300"
+            className="p-2 text-white hover:text-primary transition-all duration-300"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -107,26 +152,51 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gradient-to-br from-background-color2 to-gray-900 backdrop-blur-md"
+            className="md:hidden glass border-t border-border"
           >
-            <div className="flex flex-col items-center space-y-6 py-6">
-              {navLinks.map((link, index) => (
+            <div className="container mx-auto px-4 py-6">
+              <div className="flex flex-col space-y-4">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Link 
+                      href={link.href} 
+                      className={`nav-link block px-4 py-3 rounded-xl transition-all duration-300 text-lg ${
+                        activeSection === link.href.substring(1)
+                          ? 'text-primary bg-primary/10 border border-primary/20'
+                          : 'text-muted-foreground hover:text-white hover:bg-card'
+                      }`}
+                      onClick={toggleMenu}
+                    >
+                      {link.text}
+                    </Link>
+                  </motion.div>
+                ))}
+                
                 <motion.div
-                  key={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+                  className="pt-4 border-t border-border"
                 >
-                  <Link 
-                    href={link.href} 
-                    className="nav-link text-gray-300 hover:text-yellow-400 transition-all duration-300 text-lg"
+                  <Link
+                    href="#contact"
+                    className="nav-link inline-flex items-center justify-center w-full px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold group"
                     onClick={toggleMenu}
                   >
-                    {link.text}
+                    Let&apos;s Talk
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </Link>
                 </motion.div>
-              ))}
+              </div>
             </div>
           </motion.div>
         )}

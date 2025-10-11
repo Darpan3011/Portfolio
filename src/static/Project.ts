@@ -29,6 +29,12 @@ export const projects = [
       link: "https://github.com/Darpan3011/Audit-in-springboot.git"
     },
     {
+      title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",
+      img: underConstru,
+      desc: "(Under Development check Github code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
+      link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
+    },
+    {
       title: "Task Management Backend (.NET)",
       img: TaskBackend,
       desc: "Manage, Assign task to users with Authentication and Authorization.",
@@ -39,12 +45,6 @@ export const projects = [
       img: TaskFrontend,
       desc: "UI for Task Management backend.",
       link: "https://github.com/Darpan3011/TaskManagementUI"
-    },
-    {
-      title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",
-      img: underConstru,
-      desc: "(Under Development check Github code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
-      link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
     },
     {
       title: "Real Time Chating app with Websocket and Spring Security (Java SpringBoot)",

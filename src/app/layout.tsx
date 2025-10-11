@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 
-const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://darpan-portfolio.vercel.app"),
-  title: "Darpan Kanani | Software Engineer",
-  description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
-  keywords: "Darpan Kanani, Software Engineer, Full Stack Developer, .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, Tailwind CSS, Portfolio",
+  title: "Darpan Kanani | Full Stack Developer",
+  description: "Darpan Kanani - Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies. Building scalable applications with passion for clean code and user experience.",
+  keywords: "Darpan Kanani, Full Stack Developer, Software Engineer, React, Next.js, TypeScript, Node.js, Spring Boot, .NET, AWS, MongoDB, MySQL, Modern Web Development, Portfolio",
   authors: [{ name: "Darpan Kanani" }],
   icons: '/favicon.ico',
   openGraph: {
-    title: "Darpan Kanani | Software Engineer",
-    description: "Darpan Kanani - Software Engineer skilled in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS. Explore my portfolio and projects.",
+    title: "Darpan Kanani | Full Stack Developer",
+    description: "Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies.",
     url: "https://darpan-portfolio.vercel.app/",
     images: [
       {
@@ -29,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Darpan Kanani | Full Stack Developer",
-    description: "Explore my portfolio showcasing skills in .NET, Angular, React, Next.js, TypeScript, Node.js, Express.js, Spring Boot, AWS, MongoDB, MySQL, C#, Java, and Tailwind CSS.",
+    description: "Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies.",
     images: ["/profile.png"],
   },
 };
@@ -40,10 +37,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.className}`}>
-      <body>
-        <Navbar/>
-        <main className="container">{children}</main>
+    <html lang="en" className="scroll-smooth bg-background">
+      <body className="font-sans antialiased bg-background">
+        <div className="min-h-screen animated-bg">
+          <Navbar/>
+          <main className="relative z-10">{children}</main>
+        </div>
       </body>
     </html>
   );
