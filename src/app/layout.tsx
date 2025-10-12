@@ -4,14 +4,14 @@ import Navbar from "@/app/components/Navbar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darpan-portfolio.vercel.app"),
-  title: "Darpan Kanani | Full Stack Developer",
-  description: "Darpan Kanani - Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies. Building scalable applications with passion for clean code and user experience.",
-  keywords: "Darpan Kanani, Full Stack Developer, Software Engineer, React, Next.js, TypeScript, Node.js, Spring Boot, .NET, AWS, MongoDB, MySQL, Modern Web Development, Portfolio",
+  title: "Darpan Kanani | Java Full Stack Developer",
+  description: "Darpan Kanani - Java Full Stack Developer specializing in modern web technologies. Expert in Java, Spring Boot, Redis, MySQL, React, Next.js, TypeScript, .NET, and cloud technologies. Building scalable applications with passion for clean code and user experience.",
+  keywords: "Darpan Kanani, Java Full Stack Developer, Software Engineer, Java, Spring Boot, Redis, MySQL, React, Next.js, TypeScript, .NET, AWS, MongoDB, Modern Web Development, Portfolio",
   authors: [{ name: "Darpan Kanani" }],
   icons: '/favicon.ico',
   openGraph: {
-    title: "Darpan Kanani | Full Stack Developer",
-    description: "Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies.",
+    title: "Darpan Kanani | Java Full Stack Developer",
+    description: "Java Full Stack Developer specializing in modern web technologies. Expert in Java, Spring Boot, Redis, MySQL, React, Next.js, TypeScript, .NET, and cloud technologies.",
     url: "https://darpan-portfolio.vercel.app/",
     images: [
       {
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Darpan Kanani | Full Stack Developer",
-    description: "Full Stack Developer specializing in modern web technologies. Expert in React, Next.js, TypeScript, Node.js, Spring Boot, .NET, and cloud technologies.",
+    title: "Darpan Kanani | Java Full Stack Developer",
+    description: "Java Full Stack Developer specializing in modern web technologies. Expert in Java, Spring Boot, Redis, MySQL, React, Next.js, TypeScript, .NET, and cloud technologies.",
     images: ["/profile.png"],
   },
 };
