@@ -44,7 +44,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6"
+              className="mb-6 hidden md:block"
             >
               <span className="inline-block px-4 py-2 bg-card rounded-full text-sm font-medium text-primary border border-primary/20 mb-4">
                 👋 Welcome to my portfolio
