@@ -7,7 +7,8 @@ import underConstru from '../utils/images/underConstruction.png'
 import VotingSystem from '../utils/images/VoteSystem.png'
 import chat from '../utils/images/chat.png'
 import springSecurity from '../utils/images/springSecurity.png'
-import AuditSpringBoot from '../utils/images/AuditSpringBoot.png'
+import reusableMethod from '../utils/images/reusableMethod.png'
+import aiAgent from '../utils/images/aiAgent.png'
 
 export const projects = [
     {
@@ -23,10 +24,16 @@ export const projects = [
       link: "https://github.com/Darpan3011/reusable-jwt-security-dependency.git"
     },
     {
-      title: "Audit models in Spring Boot (Java SpringBoot Spring Security JPA)",
-      img: AuditSpringBoot,
-      desc: "Updated the Spring Boot application to include audit models for tracking changes made to data with date and user details, enhancing data integrity and compliance with regulatory requirements.",
-      link: "https://github.com/Darpan3011/Audit-in-springboot.git"
+      title: "AI Agent for database (Java SpringBoot)",
+      img: aiAgent,
+      desc: "Developed an AI agent for database that can answer questions about the database and can also generate SQL queries to perform operations on the database and give human readable response. Also we can exclude tables or columns from scanning to improve the performance and security.",
+      link: "https://github.com/Darpan3011/AiAgent-for-database"
+    },
+    {
+      title: "Reusable method for sorting, filtering, searching, pagination (Java SpringBoot)",
+      img: reusableMethod,
+      desc: "Developed a reusable method for sorting, filtering, searching, and pagination, enabling quick integration.",
+      link: "https://github.com/Darpan3011/Reusable-method-for-sorting-filtering-searching"
     },
     {
       title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",

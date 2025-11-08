@@ -11,6 +11,7 @@ const Projects = () => {
     typeof projects[0]["img"] | null
   >(null);
   const [activeFilter, setActiveFilter] = useState("all");
+  const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
 
   const categories = ["all", "backend", "frontend"];
 
@@ -92,6 +93,22 @@ const Projects = () => {
     if (lower.includes("mysql")) techs.push("MySQL");
 
     return techs;
+  };
+
+  const toggleExpanded = (projectTitle: string) => {
+    setExpandedProjects((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(projectTitle)) {
+        newSet.delete(projectTitle);
+      } else {
+        newSet.add(projectTitle);
+      }
+      return newSet;
+    });
+  };
+
+  const isExpanded = (projectTitle: string) => {
+    return expandedProjects.has(projectTitle);
   };
 
   return (
@@ -178,9 +195,23 @@ const Projects = () => {
                       {project.title}
                     </h3>
 
-                    <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-3">
-                      {project.desc}
-                    </p>
+                    <div className="mb-4">
+                      <p
+                        className={`text-muted-foreground leading-relaxed ${
+                          isExpanded(project.title) ? "" : "line-clamp-3"
+                        }`}
+                      >
+                        {project.desc}
+                      </p>
+                      {project.desc.length > 100 && (
+                        <button
+                          onClick={() => toggleExpanded(project.title)}
+                          className="mt-2 text-primary hover:text-primary-hover text-sm font-medium transition-colors duration-300"
+                        >
+                          {isExpanded(project.title) ? "Read less" : "Read more"}
+                        </button>
+                      )}
+                    </div>
 
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-6">
