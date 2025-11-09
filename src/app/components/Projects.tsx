@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -12,6 +12,8 @@ const Projects = () => {
   >(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
+  const [exceedsThreeLines, setExceedsThreeLines] = useState<Set<string>>(new Set());
+  const descRefs = useRef<{ [key: string]: HTMLParagraphElement | null }>({});
 
   const categories = ["all", "backend", "frontend"];
 
@@ -111,6 +113,53 @@ const Projects = () => {
     return expandedProjects.has(projectTitle);
   };
 
+  useEffect(() => {
+    const checkLineCount = () => {
+      const newExceedsThreeLines = new Set<string>();
+      
+      Object.entries(descRefs.current).forEach(([title, element]) => {
+        if (element) {
+          // Get computed styles to calculate line height
+          const styles = window.getComputedStyle(element);
+          const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.5;
+          const maxHeight = lineHeight * 3; // Height for 3 lines
+          
+          // Create a temporary clone to measure full height without line-clamp
+          const clone = element.cloneNode(true) as HTMLElement;
+          const elementWidth = element.offsetWidth;
+          clone.style.position = 'absolute';
+          clone.style.visibility = 'hidden';
+          clone.style.height = 'auto';
+          clone.style.maxHeight = 'none';
+          clone.style.width = `${elementWidth}px`;
+          clone.style.webkitLineClamp = 'none';
+          clone.style.display = 'block';
+          clone.className = clone.className.replace('line-clamp-3', '');
+          
+          element.parentElement?.appendChild(clone);
+          const fullHeight = clone.offsetHeight;
+          element.parentElement?.removeChild(clone);
+          
+          // If full height exceeds 3 lines, show read more
+          if (fullHeight > maxHeight) {
+            newExceedsThreeLines.add(title);
+          }
+        }
+      });
+      
+      setExceedsThreeLines(newExceedsThreeLines);
+    };
+
+    // Check after initial render and when filter changes
+    const timeoutId = setTimeout(checkLineCount, 100);
+    window.addEventListener('resize', checkLineCount);
+    
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('resize', checkLineCount);
+    };
+  }, [activeFilter, filteredProjects]);
+
   return (
     <>
       <motion.section
@@ -197,13 +246,16 @@ const Projects = () => {
 
                     <div className="mb-4">
                       <p
+                        ref={(el) => {
+                          descRefs.current[project.title] = el;
+                        }}
                         className={`text-muted-foreground leading-relaxed ${
                           isExpanded(project.title) ? "" : "line-clamp-3"
                         }`}
                       >
                         {project.desc}
                       </p>
-                      {project.desc.length > 100 && (
+                      {exceedsThreeLines.has(project.title) && (
                         <button
                           onClick={() => toggleExpanded(project.title)}
                           className="mt-2 text-primary hover:text-primary-hover text-sm font-medium transition-colors duration-300"

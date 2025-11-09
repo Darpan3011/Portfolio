@@ -161,7 +161,7 @@ const Contact = () => {
                 <motion.a
                   whileHover={{ scale: 1.02 }}
                   href="mailto:darpankanani3011@gmail.com"
-                  className="flex items-center p-4 bg-card rounded-xl hover:bg-card-hover transition-all duration-300 border border-border group"
+                  className="flex items-center"
                 >
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mr-4 group-hover:bg-primary/30 transition-colors">
                     <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +179,7 @@ const Contact = () => {
                   href="https://linkedin.com/in/darpan-kanani"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-4 bg-card rounded-xl hover:bg-card-hover transition-all duration-300 border border-border group"
+                  className="flex items-center"
                 >
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mr-4 group-hover:bg-primary/30 transition-colors">
                     <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -197,7 +197,7 @@ const Contact = () => {
                   href="https://github.com/Darpan3011"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center p-4 bg-card rounded-xl hover:bg-card-hover transition-all duration-300 border border-border group"
+                  className="flex items-center"
                 >
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mr-4 group-hover:bg-primary/30 transition-colors">
                     <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
