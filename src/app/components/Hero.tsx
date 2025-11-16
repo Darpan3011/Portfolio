@@ -57,7 +57,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="hidden md:block text-5xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               <span className="gradient-text">Darpan</span>
               <br />
@@ -68,7 +68,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mb-8"
+              className="pt-16 md:pt-0 mb-8"
             >
               <div className="text-2xl lg:text-3xl font-semibold text-muted-foreground mb-2">
                 I&apos;m a{' '}
