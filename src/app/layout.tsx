@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 
@@ -40,9 +41,22 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth bg-background">
       <body className="font-sans antialiased bg-background">
         <div className="min-h-screen animated-bg">
-          <Navbar/>
+          <Navbar />
           <main className="relative z-10">{children}</main>
         </div>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D0VPY295FJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-D0VPY295FJ');
+          `}
+        </Script>
       </body>
     </html>
   );
