@@ -8,12 +8,12 @@ import { experiences } from '@/static/Experience';
 
 const Experience = () => {
   return (
-    <motion.section 
-      id="experience" 
+    <motion.section
+      id="experience"
       className="section-padding"
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      viewport={{ once: true }} 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
       <div className="container mx-auto px-4">
@@ -35,10 +35,10 @@ const Experience = () => {
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent"></div>
-          
+
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -49,18 +49,18 @@ const Experience = () => {
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0">
                   <div className="w-16 h-16 bg-card rounded-lg flex items-center justify-center shadow-lg border border-border p-2">
-                    <Image 
-                      src={exp.logo[0]} 
-                      alt={exp.title} 
-                      width={40} 
-                      height={40} 
-                      className="object-contain" 
+                    <Image
+                      src={exp.logo[0]}
+                      alt={exp.title}
+                      width={40}
+                      height={40}
+                      className="object-contain"
                     />
                   </div>
                 </div>
 
                 {/* Content */}
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
                   className="flex-1 glass rounded-2xl p-8 hover:bg-card-hover transition-all duration-300"
@@ -72,9 +72,9 @@ const Experience = () => {
                       <p className="text-muted-foreground">{exp.date}</p>
                     </div>
                     <div className="mt-4 lg:mt-0">
-                      <Link 
-                        href={exp.link} 
-                        target="_blank" 
+                      <Link
+                        href={exp.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all duration-300 border border-primary/20 text-sm font-medium"
                       >
@@ -88,7 +88,7 @@ const Experience = () => {
 
                   <div className="space-y-4">
                     {exp.desc.map((point, i) => (
-                      <motion.div 
+                      <motion.div
                         key={i}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -102,8 +102,8 @@ const Experience = () => {
                     ))}
                   </div>
 
-                  {exp.wordDone.length > 0 && (
-                    <motion.div 
+                  {exp.wordDone != null && (
+                    <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -113,10 +113,10 @@ const Experience = () => {
                       <h4 className="text-lg font-semibold text-white mb-4">Key Projects</h4>
                       <div className="flex flex-wrap gap-3">
                         {exp.wordDone.map((work, i) => (
-                          <Link 
-                            key={i} 
-                            href={work.url} 
-                            target='_blank' 
+                          <Link
+                            key={i}
+                            href={work.url}
+                            target='_blank'
                             rel="noopener noreferrer"
                             className="inline-flex items-center px-4 py-2 bg-card text-white rounded-lg hover:bg-card-hover transition-all duration-300 border border-border text-sm font-medium group"
                           >
@@ -124,7 +124,7 @@ const Experience = () => {
                             <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
-                          </Link>              
+                          </Link>
                         ))}
                       </div>
                     </motion.div>
@@ -148,7 +148,7 @@ const Experience = () => {
               Ready to Work Together?
             </h3>
             <p className="text-lg text-muted-foreground mb-6">
-              I&apos;m always excited to take on new challenges and contribute to meaningful projects. 
+              I&apos;m always excited to take on new challenges and contribute to meaningful projects.
               Let&apos;s discuss how I can help bring your ideas to life.
             </p>
             <Link
