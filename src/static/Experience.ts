@@ -9,7 +9,7 @@ export const experiences = [
     date: "Dec 2025 - Present",
     position: "Software Engineer",
     desc: [
-      "Yet to contribute to the projects..... 😁"
+      "Implemented custom validation for input fields by dynamically applying validation rules stored in the database, based on different clients like ICICI, HDFC, AU, IDFL, Sundaram etc."
     ],
     link: "https://hello.accumn.ai",
     logo: [Accumn]
