@@ -35,11 +35,11 @@ const Skills = () => {
       title: "Frameworks & Tools",
       icon: "🔧",
       skills: [
-        { name: ".NET Core", level: 85, color: "from-purple-400 to-purple-600" },
-        { name: "Node.js", level: 80, color: "from-green-500 to-green-700" },
-        { name: "Express.js", level: 75, color: "from-gray-400 to-gray-600" },
         { name: "Docker", level: 78, color: "from-blue-400 to-blue-600" },
         { name: "AWS", level: 75, color: "from-orange-400 to-orange-600" },
+        { name: "Jenkins", level: 75, color: "from-orange-400 to-yellow-600" },
+        { name: "Git", level: 75, color: "from-orange-400 to-green-600" },
+        { name: "Docker", level: 75, color: "from-orange-400 to-blue-600" },
       ]
     },
     frontend: {
@@ -59,8 +59,8 @@ const Skills = () => {
   const categories = Object.keys(skillsData)
 
   return (
-    <motion.section 
-      id="skills" 
+    <motion.section
+      id="skills"
       className="section-padding"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -95,11 +95,10 @@ const Skills = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-primary text-white shadow-lg shadow-primary/25'
-                  : 'bg-card text-muted-foreground hover:bg-card-hover hover:text-white border border-border'
-              }`}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeCategory === category
+                ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                : 'bg-card text-muted-foreground hover:bg-card-hover hover:text-white border border-border'
+                }`}
             >
               <span className="mr-2">{skillsData[category as keyof typeof skillsData].icon}</span>
               {skillsData[category as keyof typeof skillsData].title}
@@ -131,7 +130,7 @@ const Skills = () => {
                   {skill.level}%
                 </span>
               </div>
-              
+
               <div className="w-full bg-background-secondary rounded-full h-2 mb-2">
                 <motion.div
                   initial={{ width: 0 }}
@@ -140,7 +139,7 @@ const Skills = () => {
                   className={`h-2 rounded-full bg-gradient-to-r ${skill.color} shadow-lg`}
                 />
               </div>
-              
+
               <div className="flex items-center justify-between text-sm text-muted-foreground">
                 <span>Beginner</span>
                 <span>Expert</span>
@@ -157,12 +156,12 @@ const Skills = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="glass rounded-2xl p-8 max-w-6xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 gradient-text">
               Continuous Learning & Growth
             </h3>
             <p className="text-lg text-muted-foreground mb-6">
-              I&apos;m passionate about staying up-to-date with the latest technologies and best practices. 
+              I&apos;m passionate about staying up-to-date with the latest technologies and best practices.
               Currently exploring advanced cloud architectures, microservices, and modern DevOps practices.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

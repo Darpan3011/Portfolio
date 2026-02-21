@@ -116,14 +116,14 @@ const Projects = () => {
   useEffect(() => {
     const checkLineCount = () => {
       const newExceedsThreeLines = new Set<string>();
-      
+
       Object.entries(descRefs.current).forEach(([title, element]) => {
         if (element) {
           // Get computed styles to calculate line height
           const styles = window.getComputedStyle(element);
           const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.5;
           const maxHeight = lineHeight * 3; // Height for 3 lines
-          
+
           // Create a temporary clone to measure full height without line-clamp
           const clone = element.cloneNode(true) as HTMLElement;
           const elementWidth = element.offsetWidth;
@@ -135,25 +135,25 @@ const Projects = () => {
           clone.style.webkitLineClamp = 'none';
           clone.style.display = 'block';
           clone.className = clone.className.replace('line-clamp-3', '');
-          
+
           element.parentElement?.appendChild(clone);
           const fullHeight = clone.offsetHeight;
           element.parentElement?.removeChild(clone);
-          
+
           // If full height exceeds 3 lines, show read more
           if (fullHeight > maxHeight) {
             newExceedsThreeLines.add(title);
           }
         }
       });
-      
+
       setExceedsThreeLines(newExceedsThreeLines);
     };
 
     // Check after initial render and when filter changes
     const timeoutId = setTimeout(checkLineCount, 100);
     window.addEventListener('resize', checkLineCount);
-    
+
     return () => {
       clearTimeout(timeoutId);
       window.removeEventListener('resize', checkLineCount);
@@ -199,11 +199,10 @@ const Projects = () => {
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 capitalize ${
-                  activeFilter === category
-                    ? "bg-primary text-white shadow-lg shadow-primary/25"
-                    : "bg-card text-muted-foreground hover:bg-card-hover hover:text-white border border-border"
-                }`}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 capitalize ${activeFilter === category
+                  ? "bg-primary text-white shadow-lg shadow-primary/25"
+                  : "bg-card text-muted-foreground hover:bg-card-hover hover:text-white border border-border"
+                  }`}
               >
                 {category}
               </button>
@@ -211,7 +210,7 @@ const Projects = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatePresence>
               {filteredProjects.map((project, index) => (
                 <motion.div
@@ -249,9 +248,8 @@ const Projects = () => {
                         ref={(el) => {
                           descRefs.current[project.title] = el;
                         }}
-                        className={`text-muted-foreground leading-relaxed ${
-                          isExpanded(project.title) ? "" : "line-clamp-3"
-                        }`}
+                        className={`text-muted-foreground leading-relaxed ${isExpanded(project.title) ? "" : "line-clamp-3"
+                          }`}
                       >
                         {project.desc}
                       </p>

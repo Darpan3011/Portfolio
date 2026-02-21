@@ -143,7 +143,7 @@ const Experience = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <div className="glass rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="glass rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-4 gradient-text">
               Ready to Work Together?
             </h3>
