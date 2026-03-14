@@ -16,8 +16,7 @@ const Skills = () => {
         { name: "Spring Security", level: 88, color: "from-purple-400 to-purple-600" },
         { name: "Microservices", level: 80, color: "from-indigo-400 to-indigo-600" },
         { name: "JPA/Hibernate", level: 85, color: "from-cyan-400 to-cyan-600" },
-        { name: "REST APIs", level: 90, color: "from-blue-400 to-blue-600" },
-        { name: "C#", level: 88, color: "from-blue-400 to-blue-600" }
+        { name: "REST APIs", level: 90, color: "from-blue-400 to-blue-600" }
       ]
     },
     database: {

@@ -3,7 +3,7 @@ import social from '../utils/images/Social.png'
 import weather from '../utils/images/Weather.png'
 import TaskBackend from '../utils/images/TaskManagemntBackend.jpeg'
 import TaskFrontend from '../utils/images/TaskFrontend.png'
-import underConstru from '../utils/images/underConstruction.png'
+import RealTimeQuiz from '../utils/images/RealTimeQuiz.png'
 import VotingSystem from '../utils/images/VoteSystem.png'
 import chat from '../utils/images/chat.png'
 import springSecurity from '../utils/images/springSecurity.png'
@@ -37,7 +37,7 @@ export const projects = [
   },
   {
     title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",
-    img: underConstru,
+    img: RealTimeQuiz,
     desc: "(Under Development check Github code) Realtime quiz for multiplayer. Create quiz, generate code for quiz and allow users to join the quiz.",
     link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
   },
