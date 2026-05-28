@@ -11,45 +11,51 @@ export default {
   	extend: {
   		colors: {
   			background: {
-				DEFAULT: '#0a0a0a',
-				secondary: '#1a1a2e',
-				tertiary: '#16213e',
-				quaternary: '#0f3460',
+				DEFAULT: '#0a0a0b',
+				secondary: '#111113',
+				tertiary: '#1a1a1d',
+				elevated: '#222225',
 			},
-  			foreground: '#ffffff',
+  			foreground: '#fafafa',
   			card: {
-  				DEFAULT: 'rgba(255, 255, 255, 0.05)',
-  				foreground: '#ffffff',
-  				hover: 'rgba(255, 255, 255, 0.1)'
+  				DEFAULT: 'rgba(255, 255, 255, 0.03)',
+  				foreground: '#fafafa',
+  				hover: 'rgba(255, 255, 255, 0.06)'
   			},
   			primary: {
-  				DEFAULT: '#667eea',
-  				foreground: '#ffffff',
-  				hover: '#5a6fd8'
+  				DEFAULT: '#f59e0b',
+  				foreground: '#0a0a0b',
+  				hover: '#fbbf24',
+  				muted: 'rgba(245, 158, 11, 0.15)',
   			},
   			secondary: {
-  				DEFAULT: '#764ba2',
-  				foreground: '#ffffff',
-  				hover: '#6a4190'
+  				DEFAULT: '#14b8a6',
+  				foreground: '#0a0a0b',
+  				hover: '#2dd4bf'
   			},
   			accent: {
-  				DEFAULT: '#f093fb',
-  				foreground: '#000000',
-  				hover: '#e881f9'
+  				DEFAULT: '#f59e0b',
+  				foreground: '#0a0a0b',
+  				hover: '#fbbf24'
   			},
   			muted: {
-  				DEFAULT: '#64748b',
-  				foreground: '#94a3b8'
+  				DEFAULT: '#52525b',
+  				foreground: '#a1a1aa'
   			},
-  			border: 'rgba(255, 255, 255, 0.1)',
-  			input: 'rgba(255, 255, 255, 0.05)',
-  			ring: '#667eea',
+  			border: {
+  				DEFAULT: 'rgba(255, 255, 255, 0.06)',
+  				hover: 'rgba(255, 255, 255, 0.12)',
+  				accent: 'rgba(245, 158, 11, 0.3)',
+  			},
+  			input: 'rgba(255, 255, 255, 0.04)',
+  			ring: '#f59e0b',
   			success: '#10b981',
   			warning: '#f59e0b',
   			error: '#ef4444',
   		},
   		fontFamily: {
-  			sans: ['Inter', 'system-ui', 'sans-serif'],
+  			display: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+  			sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
   		},
   		fontSize: {
   			'xs': ['0.75rem', { lineHeight: '1rem' }],
@@ -60,8 +66,8 @@ export default {
   			'2xl': ['1.5rem', { lineHeight: '2rem' }],
   			'3xl': ['1.875rem', { lineHeight: '2.25rem' }],
   			'4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-  			'5xl': ['3rem', { lineHeight: '1' }],
-  			'6xl': ['3.75rem', { lineHeight: '1' }],
+  			'5xl': ['3rem', { lineHeight: '1.1' }],
+  			'6xl': ['3.75rem', { lineHeight: '1.05' }],
   			'7xl': ['4.5rem', { lineHeight: '1' }],
   			'8xl': ['6rem', { lineHeight: '1' }],
   			'9xl': ['8rem', { lineHeight: '1' }],
@@ -90,16 +96,20 @@ export default {
   			'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
   			'2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
   			'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-  			'glow': '0 0 20px rgba(102, 126, 234, 0.3)',
-  			'glow-lg': '0 0 30px rgba(102, 126, 234, 0.5)',
+  			'glow': '0 0 20px rgba(245, 158, 11, 0.2)',
+  			'glow-lg': '0 0 40px rgba(245, 158, 11, 0.3)',
+  			'glow-accent': '0 0 30px rgba(245, 158, 11, 0.15), 0 0 60px rgba(245, 158, 11, 0.05)',
   		},
   		animation: {
-  			'fade-in': 'fadeIn 0.5s ease-in-out',
-  			'slide-up': 'slideUp 0.5s ease-out',
+  			'fade-in': 'fadeIn 0.6s ease-out',
+  			'slide-up': 'slideUp 0.6s ease-out',
   			'slide-down': 'slideDown 0.5s ease-out',
   			'scale-in': 'scaleIn 0.3s ease-out',
   			'float': 'float 6s ease-in-out infinite',
   			'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+  			'shimmer': 'shimmer 2s linear infinite',
+  			'border-glow': 'borderGlow 3s ease-in-out infinite',
+  			'reveal': 'reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
   		},
   		keyframes: {
   			fadeIn: {
@@ -107,7 +117,7 @@ export default {
   				'100%': { opacity: '1' },
   			},
   			slideUp: {
-  				'0%': { transform: 'translateY(20px)', opacity: '0' },
+  				'0%': { transform: 'translateY(30px)', opacity: '0' },
   				'100%': { transform: 'translateY(0)', opacity: '1' },
   			},
   			slideDown: {
@@ -121,6 +131,18 @@ export default {
   			float: {
   				'0%, 100%': { transform: 'translateY(0px)' },
   				'50%': { transform: 'translateY(-20px)' },
+  			},
+  			shimmer: {
+  				'0%': { backgroundPosition: '-200% 0' },
+  				'100%': { backgroundPosition: '200% 0' },
+  			},
+  			borderGlow: {
+  				'0%, 100%': { borderColor: 'rgba(245, 158, 11, 0.2)' },
+  				'50%': { borderColor: 'rgba(245, 158, 11, 0.5)' },
+  			},
+  			reveal: {
+  				'0%': { transform: 'translateY(100%)', opacity: '0' },
+  				'100%': { transform: 'translateY(0)', opacity: '1' },
   			},
   		},
   		backdropBlur: {

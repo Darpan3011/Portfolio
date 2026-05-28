@@ -7,6 +7,10 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
+const SectionDivider = () => (
+  <div className="section-divider" />
+);
+
 export default function Home() {
 
   useEffect(() => {
@@ -36,10 +40,15 @@ export default function Home() {
   return (
     <div className="relative">
       <Hero />
+      <SectionDivider />
       <About />  
+      <SectionDivider />
       <Skills />
+      <SectionDivider />
       <Experience />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
       <Contact />
     </div>
   );

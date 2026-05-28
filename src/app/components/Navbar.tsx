@@ -12,7 +12,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       
-      // Update active section based on scroll position
       const sections = ['about', 'skills', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
@@ -46,92 +45,69 @@ export default function Navbar() {
 
   return (
     <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'glass py-3 shadow-2xl border-b border-border' 
-          : 'bg-transparent py-4'
+          ? 'w-auto' 
+          : 'w-auto'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+      <div className={`flex items-center gap-1 px-2 py-2 rounded-full transition-all duration-500 ${
+        scrolled
+          ? 'bg-background-secondary/80 backdrop-blur-xl border border-white/[0.06] shadow-2xl'
+          : 'bg-background-secondary/50 backdrop-blur-md border border-white/[0.04]'
+      }`}>
+        {/* Monogram Logo */}
+        <Link 
+          href="#" 
+          className="flex items-center justify-center w-9 h-9 rounded-full border border-primary/30 bg-primary/10 text-primary font-display font-bold text-sm mr-2 hover:bg-primary/20 transition-all duration-300 flex-shrink-0"
         >
-          <Link 
-            href="#" 
-            className="text-2xl font-bold gradient-text hover:scale-105 transition-all duration-300"
-          >
-            Darpan Kanani
-          </Link>
-        </motion.div>
+          DK
+        </Link>
         
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link, index) => (
-            <motion.div
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <Link 
               key={link.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              href={link.href} 
+              className={`nav-link relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeSection === link.href.substring(1)
+                  ? 'text-background bg-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+              data-offset="150"
             >
-              <Link 
-                href={link.href} 
-                className={`nav-link relative px-3 py-2 rounded-lg transition-all duration-300 group ${
-                  activeSection === link.href.substring(1)
-                    ? 'text-primary bg-primary/10'
-                    : 'text-muted-foreground hover:text-white hover:bg-card'
-                }`}
-                data-offset="150"
-              >
-                {link.text}
-                {activeSection === link.href.substring(1) && (
-                  <motion.div
-                    layoutId="activeSection"
-                    className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </Link>
-            </motion.div>
+              {link.text}
+            </Link>
           ))}
           
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
+          <Link
+            href="#contact"
+            className="nav-link ml-2 inline-flex items-center px-5 py-2 bg-foreground text-background rounded-full text-sm font-semibold hover:bg-foreground/90 transition-all duration-300 flex-shrink-0"
           >
-            <Link
-              href="#contact"
-              className="nav-link inline-flex items-center px-6 py-2 bg-primary text-white rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold shadow-lg hover:shadow-glow group"
-            >
-              Let&apos;s Talk
-              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </motion.div>
+            Let&apos;s Talk
+            <svg className="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
 
         {/* Hamburger menu for mobile */}
-        <motion.div 
-          className="md:hidden flex items-center"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
+        <div className="md:hidden flex items-center">
           <button 
             onClick={toggleMenu} 
-            className="p-2 text-white hover:text-primary transition-all duration-300"
+            className="p-2 text-foreground hover:text-primary transition-all duration-300 rounded-full"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor" 
-              className={`h-6 w-6 transform transition-all duration-300 ${isMenuOpen ? "rotate-45" : ""}`}
+              className="h-5 w-5"
             >
               <path 
                 strokeLinecap="round" 
@@ -141,64 +117,75 @@ export default function Navbar() {
               />
             </svg>
           </button>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - bottom sheet style */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-border"
-          >
-            <div className="container mx-auto px-4 py-6">
-              <div className="flex flex-col space-y-4">
-                {navLinks.map((link, index) => (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden"
+              style={{ top: '-1rem', left: '-50vw', width: '200vw' }}
+              onClick={toggleMenu}
+            />
+            <motion.div 
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden mt-3 bg-background-secondary/95 backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <div className="p-4">
+                <div className="flex flex-col space-y-1">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.25, delay: index * 0.05 }}
+                    >
+                      <Link 
+                        href={link.href} 
+                        className={`nav-link block px-4 py-3 rounded-xl transition-all duration-300 text-base font-medium ${
+                          activeSection === link.href.substring(1)
+                            ? 'text-primary bg-primary/10'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-white/[0.04]'
+                        }`}
+                        onClick={toggleMenu}
+                      >
+                        {link.text}
+                      </Link>
+                    </motion.div>
+                  ))}
+                  
                   <motion.div
-                    key={link.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.25, delay: navLinks.length * 0.05 }}
+                    className="pt-3 mt-2 border-t border-white/[0.06]"
                   >
-                    <Link 
-                      href={link.href} 
-                      className={`nav-link block px-4 py-3 rounded-xl transition-all duration-300 text-lg ${
-                        activeSection === link.href.substring(1)
-                          ? 'text-primary bg-primary/10 border border-primary/20'
-                          : 'text-muted-foreground hover:text-white hover:bg-card'
-                      }`}
+                    <Link
+                      href="#contact"
+                      className="nav-link inline-flex items-center justify-center w-full px-6 py-3 bg-primary text-background rounded-xl font-semibold text-sm transition-all duration-300"
                       onClick={toggleMenu}
                     >
-                      {link.text}
+                      Let&apos;s Talk
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </Link>
                   </motion.div>
-                ))}
-                
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
-                  className="pt-4 border-t border-border"
-                >
-                  <Link
-                    href="#contact"
-                    className="nav-link inline-flex items-center justify-center w-full px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold group"
-                    onClick={toggleMenu}
-                  >
-                    Let&apos;s Talk
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </motion.div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

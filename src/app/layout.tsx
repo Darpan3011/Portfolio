@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://darpan-portfolio.vercel.app"),
@@ -38,9 +51,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth bg-background">
-      <body className="font-sans antialiased bg-background">
-        <div className="min-h-screen animated-bg">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <div className="noise-overlay" aria-hidden="true" />
+        <div className="relative min-h-screen">
           <Navbar />
           <main className="relative z-10">{children}</main>
         </div>

@@ -20,7 +20,6 @@ const Projects = () => {
   const getProjectCategory = (title: string) => {
     const lower = title.toLowerCase();
 
-    // Frontend-related
     if (
       lower.includes("angular") ||
       lower.includes("react") ||
@@ -31,7 +30,6 @@ const Projects = () => {
       return "frontend";
     }
 
-    // Backend-related
     if (
       lower.includes("spring") ||
       lower.includes("java") ||
@@ -44,19 +42,18 @@ const Projects = () => {
       lower.includes("blockchain") ||
       lower.includes("websocket") ||
       lower.includes("chat") ||
-      lower.includes("mern") // MERN counts for both backend & frontend
+      lower.includes("mern")
     ) {
       return "backend";
     }
 
-    return "backend"; // default
+    return "backend";
   };
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
     const category = getProjectCategory(project.title);
 
-    // MERN should appear in both frontend & backend
     if (
       activeFilter === "frontend" &&
       (category === "frontend" || project.title.toLowerCase().includes("mern"))
@@ -93,6 +90,8 @@ const Projects = () => {
     if (lower.includes("mern")) techs.push("MERN");
     if (lower.includes("mongodb")) techs.push("MongoDB");
     if (lower.includes("mysql")) techs.push("MySQL");
+    if (lower.includes("redis")) techs.push("Redis");
+    if (lower.includes("lua")) techs.push("Lua");
 
     return techs;
   };
@@ -119,12 +118,10 @@ const Projects = () => {
 
       Object.entries(descRefs.current).forEach(([title, element]) => {
         if (element) {
-          // Get computed styles to calculate line height
           const styles = window.getComputedStyle(element);
           const lineHeight = parseFloat(styles.lineHeight) || parseFloat(styles.fontSize) * 1.5;
-          const maxHeight = lineHeight * 3; // Height for 3 lines
+          const maxHeight = lineHeight * 3;
 
-          // Create a temporary clone to measure full height without line-clamp
           const clone = element.cloneNode(true) as HTMLElement;
           const elementWidth = element.offsetWidth;
           clone.style.position = 'absolute';
@@ -140,7 +137,6 @@ const Projects = () => {
           const fullHeight = clone.offsetHeight;
           element.parentElement?.removeChild(clone);
 
-          // If full height exceeds 3 lines, show read more
           if (fullHeight > maxHeight) {
             newExceedsThreeLines.add(title);
           }
@@ -150,7 +146,6 @@ const Projects = () => {
       setExceedsThreeLines(newExceedsThreeLines);
     };
 
-    // Check after initial render and when filter changes
     const timeoutId = setTimeout(checkLineCount, 100);
     window.addEventListener('resize', checkLineCount);
 
@@ -160,30 +155,31 @@ const Projects = () => {
     };
   }, [activeFilter, filteredProjects]);
 
+  // Split: first project as featured, rest as grid
+  const featuredProject = filteredProjects[0];
+  const gridProjects = filteredProjects.slice(1);
+
   return (
     <>
-      <motion.section
+      <section
         id="projects"
         className="section-padding"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4">
+          {/* Section header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="gradient-text">Featured</span> Projects
+            <span className="section-label mb-3 block">04 / Projects</span>
+            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
+              Featured <span className="gradient-text">Projects</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A showcase of my recent work and the technologies I&apos;ve been
-              exploring
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              A showcase of my recent work and the technologies I&apos;ve been exploring.
             </p>
           </motion.div>
 
@@ -192,16 +188,16 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-wrap gap-2 mb-12"
           >
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 capitalize ${activeFilter === category
-                  ? "bg-primary text-white shadow-lg shadow-primary/25"
-                  : "bg-card text-muted-foreground hover:bg-card-hover hover:text-white border border-border"
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 capitalize ${activeFilter === category
+                  ? "bg-primary text-background shadow-sm shadow-primary/20"
+                  : "bg-background-secondary text-muted-foreground hover:text-foreground border border-white/[0.06] hover:border-white/[0.1]"
                   }`}
               >
                 {category}
@@ -209,17 +205,113 @@ const Projects = () => {
             ))}
           </motion.div>
 
+          {/* Featured Project */}
+          {featuredProject && (
+            <motion.div
+              key={`featured-${activeFilter}-${featuredProject.title}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <div className="bg-background-secondary rounded-2xl overflow-hidden border border-white/[0.06] card-glow group">
+                <div className="grid md:grid-cols-2 gap-0">
+                  {/* Image */}
+                  <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto">
+                    <Image
+                      src={featuredProject.img}
+                      alt={featuredProject.title}
+                      width={800}
+                      height={500}
+                      className="w-full h-full object-cover cursor-pointer group-hover:scale-[1.03] transition-transform duration-700"
+                      onClick={() => setSelectedImage(featuredProject.img)}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-background-secondary/80 via-transparent to-transparent opacity-0 md:opacity-100" />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-primary/90 text-background rounded-full text-xs font-semibold">
+                        Featured
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8 flex flex-col justify-center">
+                    <div className="mb-2">
+                      <span className="text-xs font-medium text-primary/60 uppercase tracking-wider">
+                        {getProjectCategory(featuredProject.title)}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-display font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                      {featuredProject.title}
+                    </h3>
+
+                    <div className="mb-6">
+                      <p
+                        ref={(el) => { descRefs.current[featuredProject.title] = el; }}
+                        className={`text-muted-foreground leading-relaxed text-sm ${isExpanded(featuredProject.title) ? "" : "line-clamp-3"}`}
+                      >
+                        {featuredProject.desc}
+                      </p>
+                      {exceedsThreeLines.has(featuredProject.title) && (
+                        <button
+                          onClick={() => toggleExpanded(featuredProject.title)}
+                          className="mt-2 text-primary hover:text-primary-hover text-xs font-medium transition-colors duration-300"
+                        >
+                          {isExpanded(featuredProject.title) ? "Read less" : "Read more"}
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {getTechStack(featuredProject.title).map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-white/[0.04] text-xs font-medium rounded-lg border border-white/[0.06] text-muted-foreground"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-3">
+                      <Link
+                        href={featuredProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-primary text-background px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-primary-hover transition-all duration-300 shadow-sm shadow-primary/20 group/btn"
+                      >
+                        View Project
+                        <svg className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+
+                      <button
+                        onClick={() => setSelectedImage(featuredProject.img)}
+                        className="px-3 py-2.5 bg-white/[0.04] text-muted-foreground rounded-xl border border-white/[0.06] hover:border-white/[0.12] hover:text-foreground transition-all duration-300"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence>
-              {filteredProjects.map((project, index) => (
+              {gridProjects.map((project, index) => (
                 <motion.div
                   key={`${activeFilter}-${project.title}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="glass rounded-2xl overflow-hidden hover:bg-card-hover transition-all duration-300 group"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="bg-background-secondary rounded-2xl overflow-hidden border border-white/[0.06] card-glow group flex flex-col"
                 >
                   <div className="relative overflow-hidden">
                     <Image
@@ -227,93 +319,70 @@ const Projects = () => {
                       alt={project.title}
                       width={600}
                       height={300}
-                      className="w-full h-48 object-cover cursor-pointer group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-44 object-cover cursor-pointer group-hover:scale-[1.05] transition-transform duration-500 grayscale group-hover:grayscale-0"
                       onClick={() => setSelectedImage(project.img)}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium border border-primary/30">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background-secondary via-transparent to-transparent opacity-60" />
+                    <div className="absolute top-3 right-3">
+                      <span className="px-2.5 py-1 bg-background/70 backdrop-blur-sm text-muted-foreground rounded-full text-xs font-medium border border-white/[0.08]">
                         {getProjectCategory(project.title)}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 gradient-text group-hover:text-primary transition-colors">
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-base font-display font-bold mb-2 text-foreground group-hover:text-primary transition-colors duration-300 leading-snug">
                       {project.title}
                     </h3>
 
                     <div className="mb-4">
                       <p
-                        ref={(el) => {
-                          descRefs.current[project.title] = el;
-                        }}
-                        className={`text-muted-foreground leading-relaxed ${isExpanded(project.title) ? "" : "line-clamp-3"
-                          }`}
+                        ref={(el) => { descRefs.current[project.title] = el; }}
+                        className={`text-muted-foreground leading-relaxed text-sm ${isExpanded(project.title) ? "" : "line-clamp-3"}`}
                       >
                         {project.desc}
                       </p>
                       {exceedsThreeLines.has(project.title) && (
                         <button
                           onClick={() => toggleExpanded(project.title)}
-                          className="mt-2 text-primary hover:text-primary-hover text-sm font-medium transition-colors duration-300"
+                          className="mt-1.5 text-primary hover:text-primary-hover text-xs font-medium transition-colors duration-300"
                         >
                           {isExpanded(project.title) ? "Read less" : "Read more"}
                         </button>
                       )}
                     </div>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-1.5 mb-4">
                       {getTechStack(project.title).map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-card text-xs font-medium rounded-lg border border-border"
+                          className="px-2 py-0.5 bg-white/[0.03] text-[11px] font-medium rounded border border-white/[0.06] text-muted-foreground"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex gap-4">
+                    <div className="flex gap-2 mt-auto pt-2">
                       <Link
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 inline-flex items-center justify-center bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-hover transition-all duration-300 font-semibold group"
+                        className="flex-1 inline-flex items-center justify-center bg-white/[0.06] text-foreground px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-primary hover:text-background transition-all duration-300 border border-white/[0.06] hover:border-primary group/btn"
                       >
                         View Project
-                        <svg
-                          className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          />
+                        <svg className="w-4 h-4 ml-1.5 group-hover/btn:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                       </Link>
 
                       <button
                         onClick={() => setSelectedImage(project.img)}
-                        className="px-4 py-3 bg-card text-white rounded-xl hover:bg-card-hover transition-all duration-300 border border-border group"
+                        className="px-3 py-2.5 bg-white/[0.04] text-muted-foreground rounded-xl border border-white/[0.06] hover:border-white/[0.12] hover:text-foreground transition-all duration-300 flex-shrink-0"
+                        title="View Image"
                       >
-                        <svg
-                          className="w-5 h-5 group-hover:scale-110 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                          />
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                         </svg>
                       </button>
                     </div>
@@ -323,7 +392,7 @@ const Projects = () => {
             </AnimatePresence>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Enlarged Image Modal */}
       <AnimatePresence>
@@ -332,37 +401,27 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-6xl max-h-[90vh] w-full"
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative max-w-5xl max-h-[85vh] w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-primary transition-colors duration-300 z-10"
+                className="absolute -top-10 right-0 text-white/60 hover:text-white transition-colors duration-300 z-10"
               >
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <div className="max-h-[90vh] overflow-auto rounded-2xl shadow-2xl border-2 border-border">
+              <div className="max-h-[85vh] overflow-auto rounded-2xl border border-white/[0.08]">
                 <Image
                   src={selectedImage}
                   alt="Project Screenshot"
