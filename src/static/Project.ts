@@ -9,6 +9,7 @@ import chat from '../utils/images/chat.png'
 import springSecurity from '../utils/images/springSecurity.png'
 import reusableMethod from '../utils/images/reusableMethod.png'
 import aiAgent from '../utils/images/aiAgent.png'
+import ratelimit from '../utils/images/ratelimit.png'
 
 export const projects = [
   {
@@ -18,22 +19,16 @@ export const projects = [
     link: "https://github.com/Darpan3011/ReusableSecurityModule"
   },
   {
-    title: "Voting System with Blockchain (Java SpringBoot Spring Security SQL JPA)",
-    img: VotingSystem,
-    desc: "Admin can create election, add candidates and voters. Voters can vote for their preferred candidate. . Blockchain is used to store the votes and ensure the integrity of the voting process.",
-    link: "https://github.com/Darpan3011/Voting-System-SpringBoot-BlockChain"
-  },
-  {
     title: "AI Agent for database (Java SpringBoot)",
     img: aiAgent,
     desc: "Developed an AI agent for database that can answer questions about the database and can also generate SQL queries to perform operations on the database and give human readable response. Also we can exclude tables or columns from scanning to improve the performance and security.",
     link: "https://github.com/Darpan3011/AiAgent-for-database"
   },
   {
-    title: "Reusable method for sorting, filtering, searching, pagination (Java SpringBoot)",
-    img: reusableMethod,
-    desc: "Developed a reusable method for sorting, filtering, searching, and pagination, enabling quick integration.",
-    link: "https://github.com/Darpan3011/Reusable-method-for-sorting-filtering-searching"
+    title: "Rate Limiter (Java SpringBoot with Redis and Lua)",
+    img: ratelimit,
+    desc: "A zero-boilerplate, highly pluggable Spring Boot library for distributed rate limiting using Redis and Lua scripts",
+    link: "https://github.com/Darpan3011/reusable-rate-limiter"
   },
   {
     title: "Real Time Quiz Multiplayer Backend (Java SpringBoot)",
@@ -42,7 +37,19 @@ export const projects = [
     link: "https://github.com/Darpan3011/RealTimeQuizMultiPlayer"
   },
   {
-    title: "Task Management Backend (.NET)",
+    title: "Reusable method for sorting, filtering, searching, pagination (Java SpringBoot)",
+    img: reusableMethod,
+    desc: "Developed a reusable method for sorting, filtering, searching, and pagination, enabling quick integration.",
+    link: "https://github.com/Darpan3011/Reusable-method-for-sorting-filtering-searching"
+  },
+  {
+    title: "Voting System with Blockchain (Java SpringBoot Spring Security SQL JPA)",
+    img: VotingSystem,
+    desc: "Admin can create election, add candidates and voters. Voters can vote for their preferred candidate. . Blockchain is used to store the votes and ensure the integrity of the voting process.",
+    link: "https://github.com/Darpan3011/Voting-System-SpringBoot-BlockChain"
+  },
+  {
+    title: "Task Management Backend",
     img: TaskBackend,
     desc: "Manage, Assign task to users with Authentication and Authorization.",
     link: "https://github.com/Darpan3011/TaskManagementBackend"
@@ -60,19 +67,19 @@ export const projects = [
     link: "https://github.com/Darpan3011/ChatApplicationWithPrivateChats"
   },
   {
-    title: "Hotel Booking (MERN)",
+    title: "Hotel Booking",
     img: booking,
     desc: "On this website user can register and login and book hotels, based on city and the price changes as based on number of people selected. Hotel filtering is also there.",
     link: "https://booking-app-iota-two.vercel.app/"
   },
   {
-    title: "Social Media (MERN)",
+    title: "Social Media",
     img: social,
     desc: "In this user can create account, follow their friends, create posts, comment on their posts, like their posts.",
     link: "https://social-media-ashy-three.vercel.app/login"
   },
   {
-    title: "Weather Web (MERN)",
+    title: "Weather App",
     img: weather,
     desc: "Get weather info based on city name and zipcode.",
     link: "https://weather-app-qrx3.vercel.app/"

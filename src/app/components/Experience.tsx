@@ -48,12 +48,12 @@ const Experience = () => {
               >
                 {/* Timeline dot */}
                 <div className="relative z-10 flex-shrink-0">
-                  <div className="w-16 h-16 bg-card rounded-lg flex items-center justify-center shadow-lg border border-border p-2">
+                  <div className="w-24 h-24 bg-card rounded-lg flex items-center justify-center shadow-lg border border-border">
                     <Image
                       src={exp.logo[0]}
                       alt={exp.title}
-                      width={40}
-                      height={40}
+                      width={128}
+                      height={128}
                       className="object-contain"
                     />
                   </div>
@@ -72,7 +72,7 @@ const Experience = () => {
                       <p className="text-muted-foreground">{exp.date}</p>
                     </div>
                     <div className="mt-4 lg:mt-0">
-                      <Link
+                      {exp.link != null && (<Link
                         href={exp.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -82,7 +82,7 @@ const Experience = () => {
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                      </Link>
+                      </Link>)}
                     </div>
                   </div>
 
@@ -101,34 +101,6 @@ const Experience = () => {
                       </motion.div>
                     ))}
                   </div>
-
-                  {exp.wordDone != null && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="mt-8 pt-6 border-t border-border"
-                    >
-                      <h4 className="text-lg font-semibold text-white mb-4">Key Projects</h4>
-                      <div className="flex flex-wrap gap-3">
-                        {exp.wordDone.map((work, i) => (
-                          <Link
-                            key={i}
-                            href={work.url}
-                            target='_blank'
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center px-4 py-2 bg-card text-white rounded-lg hover:bg-card-hover transition-all duration-300 border border-border text-sm font-medium group"
-                          >
-                            {work.title}
-                            <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
                 </motion.div>
               </motion.div>
             ))}
