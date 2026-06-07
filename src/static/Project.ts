@@ -1,6 +1,3 @@
-import booking from '../utils/images/Booking.png'
-import social from '../utils/images/Social.png'
-import weather from '../utils/images/Weather.png'
 import TaskBackend from '../utils/images/TaskManagemntBackend.jpeg'
 import TaskFrontend from '../utils/images/TaskFrontend.png'
 import RealTimeQuiz from '../utils/images/RealTimeQuiz.png'
@@ -61,27 +58,9 @@ export const projects = [
     link: "https://github.com/Darpan3011/TaskManagementUI"
   },
   {
-    title: "Real Time Chating app with Websocket and Spring Security (Java SpringBoot)",
+    title: "Real Time Chatting app with Websocket and Spring Security (Java SpringBoot)",
     img: chat,
-    desc: "Chat publicily and personally with someone with login functionality.",
+    desc: "Chat publicly and personally with someone with login functionality.",
     link: "https://github.com/Darpan3011/ChatApplicationWithPrivateChats"
-  },
-  {
-    title: "Hotel Booking",
-    img: booking,
-    desc: "On this website user can register and login and book hotels, based on city and the price changes as based on number of people selected. Hotel filtering is also there.",
-    link: "https://booking-app-iota-two.vercel.app/"
-  },
-  {
-    title: "Social Media",
-    img: social,
-    desc: "In this user can create account, follow their friends, create posts, comment on their posts, like their posts.",
-    link: "https://social-media-ashy-three.vercel.app/login"
-  },
-  {
-    title: "Weather App",
-    img: weather,
-    desc: "Get weather info based on city name and zipcode.",
-    link: "https://weather-app-qrx3.vercel.app/"
   }
 ];

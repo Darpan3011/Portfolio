@@ -366,6 +366,23 @@ function renderCertifications(): React.ReactNode {
   );
 }
 
+function createWelcomeEntry(id: number): TerminalEntry {
+  return {
+    id,
+    type: 'system',
+    content: (
+      <div className="mono" style={{ fontSize: 13 }}>
+        <div className="accent" style={{ marginBottom: 8 }}>╔══════════════════════════════════════╗</div>
+        <div className="accent">║  DEVOS TERMINAL v2.0                ║</div>
+        <div className="accent">║  Welcome to Darpan&apos;s Developer OS   ║</div>
+        <div className="accent" style={{ marginBottom: 8 }}>╚══════════════════════════════════════╝</div>
+        <div className="muted" style={{ marginTop: 8 }}>Type <span className="accent">help</span> to see available commands.</div>
+        <div className="muted">Try: <span className="accent">projects</span>, <span className="accent">experience</span>, <span className="accent">skills</span>, <span className="accent">education</span>, <span className="accent">certifications</span>, <span className="accent">metrics</span></div>
+      </div>
+    )
+  };
+}
+
 // ── Main CenterPanel ──────────────────────────────────────────
 export default function CenterPanel() {
   const [input, setInput] = useState('');
@@ -381,21 +398,7 @@ export default function CenterPanel() {
 
   // Initialize with welcome message
   useEffect(() => {
-    const welcomeEntry: TerminalEntry = {
-      id: idCounter.current++,
-      type: 'system',
-      content: (
-        <div className="mono" style={{ fontSize: 13 }}>
-          <div className="accent" style={{ marginBottom: 8 }}>╔══════════════════════════════════════╗</div>
-          <div className="accent">║  DEVOS TERMINAL v2.0                ║</div>
-          <div className="accent">║  Welcome to Darpan&apos;s Developer OS   ║</div>
-          <div className="accent" style={{ marginBottom: 8 }}>╚══════════════════════════════════════╝</div>
-          <div className="muted" style={{ marginTop: 8 }}>Type <span className="accent">help</span> to see available commands.</div>
-          <div className="muted">Try: <span className="accent">projects</span>, <span className="accent">experience</span>, <span className="accent">skills</span>, <span className="accent">education</span>, <span className="accent">certifications</span>, <span className="accent">metrics</span></div>
-        </div>
-      )
-    };
-    setHistory([welcomeEntry]);
+    setHistory([createWelcomeEntry(idCounter.current++)]);
   }, []);
 
   // Auto-scroll to bring the live prompt into view after output renders
@@ -471,7 +474,7 @@ export default function CenterPanel() {
         );
         break;
       case 'clear':
-        setHistory([]);
+        setHistory([createWelcomeEntry(idCounter.current++)]);
         setInput('');
         setCmdHistory(prev => [...prev, cmd]);
         setSuggestions([]);
