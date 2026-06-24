@@ -22,9 +22,9 @@ export default function LeftPanel() {
 
       <div className="mono" style={{ fontSize: 13, display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 28 }}>
         <div><span className="muted">Experience: </span>2+ Years</div>
-        <div><span className="muted">Education:  </span>B.Tech CS, IIIT Vadodara</div>
+        <div><span className="muted">Education:  </span>B.Tech CS, IIIT Vadodara (2020 - 2024)</div>
         <div><span className="muted">DSA Solved: </span>600+ Problems</div>
-        <div><span className="muted">Prod Bugs:  </span>15+ Fixed</div>
+        <div><span className="muted">Prod Bugs:  </span>40+ Fixed</div>
       </div>
 
       <div style={{ paddingTop: 20, borderTop: '1px solid var(--border-color)' }}>

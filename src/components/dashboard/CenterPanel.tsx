@@ -256,7 +256,7 @@ function renderAbout(): React.ReactNode {
   <span class="yaml-value">"Software Engineer with 2 years building scalable backend
    systems using Java and Spring Boot. Focused on system performance,
    code quality, and application stability in production systems
-   serving 10k+ daily requests."</span>
+   serving 20k+ daily requests."</span>
 
 <span class="yaml-key">stack:</span>
   - <span class="yaml-array">Java</span>
@@ -377,7 +377,7 @@ function createWelcomeEntry(id: number): TerminalEntry {
         <div className="accent">║  Welcome to Darpan&apos;s Developer OS   ║</div>
         <div className="accent" style={{ marginBottom: 8 }}>╚══════════════════════════════════════╝</div>
         <div className="muted" style={{ marginTop: 8 }}>Type <span className="accent">help</span> to see available commands.</div>
-        <div className="muted">Try: <span className="accent">projects</span>, <span className="accent">experience</span>, <span className="accent">skills</span>, <span className="accent">education</span>, <span className="accent">certifications</span>, <span className="accent">metrics</span></div>
+        <div className="muted">Try: <span className="accent">projects</span>, <span className="accent">experience</span>, <span className="accent">skills</span>, <span className="accent">education</span>, <span className="accent">certifications</span>, <span className="accent">metrics</span>, <span className="accent">contact</span>, <span className="accent">about</span></div>
       </div>
     )
   };

@@ -32,7 +32,7 @@ export const experiences = [
     desc: [
       "Boosted system performance by 10x by integrating Redis caching with Redis Template, minimizing redundant database calls across microservices.",
       "Resolved 2200+ static analysis blockers, critical issues, and code smells in a CI/CD pipeline, lowering technical debt and raising the overall code quality score.",
-      "Debugged and fixed 15+ high-priority production incidents, increasing application stability and cutting user-reported issues by over 30%.",
+      "Debugged and fixed 20+ high-priority production incidents, increasing application stability and cutting user-reported issues by over 30%.",
       "Optimized high-traffic database queries, slashing average response times by 15% under peak load.",
       "Standardized global exception handling across 20+ REST endpoints using Spring Boot exception handler, eliminating duplicate error logic and doubling consistency in error responses."
     ],
